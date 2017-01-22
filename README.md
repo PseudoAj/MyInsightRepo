@@ -26,6 +26,25 @@ The idea is to create as realistic dataset as possible; hence the dataset is ins
 
 The schema for the data:
 
-* user
-  * name
-  * address
+```
+1. registrations
+  1. ServiceId{unique}
+  2. ServiceAddress{address}
+  3. Name{name}
+  4. Type{gas, water, electricity}
+  5. ServiceMeterId{unique}
+1. batch and stream data
+  1. interval_end
+  2. interval_kW
+  3. interval_kWh
+  4. interval_start
+  5. service_uid
+  6. source
+  7. updated
+  8. utility
+  9. utility_meter_number
+  10. utility_service_address
+  11. utility_service_id
+  12. utility_tariff_name
+
+```

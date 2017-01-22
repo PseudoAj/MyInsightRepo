@@ -46,6 +46,9 @@ class DataEngine():
         # generate user details for the number of users
         for i in xrange(self.numOfUsrs):
             self.genUsr()
+
+        # generate company details for the number of businesses
+        for i in xrange(self.numOfBizs):
             self.genCmpny()
 
     # Method to create one user
