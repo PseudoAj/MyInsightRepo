@@ -1,4 +1,4 @@
-# Utility of Things
+# Utility Things
 
 ## Motivation
 
@@ -9,6 +9,8 @@ The current utility systems are outdated and this is engineered data pipeline to
 * [pegasus](https://github.com/InsightDataScience/pegasus)
 * python
   * [Faker](https://faker.readthedocs.io/en/latest/index.html)
+  * [uuid](http://stackoverflow.com/a/1210469/4085019)(Default)
+  * traceback (Default)
 
 ## Data format
 
@@ -29,11 +31,12 @@ The schema for the data:
 ```
 1. registrations
   1. ServiceId{unique}
-  2. ServiceAddress{address}
+  2. ServiceZipcode{address}
   3. Name{name}
   4. Type{gas, water, electricity}
   5. ServiceMeterId{unique}
-1. batch and stream data
+
+2. batch and stream data
   1. interval_end
   2. interval_kW
   3. interval_kWh
