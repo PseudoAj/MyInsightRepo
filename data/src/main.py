@@ -10,6 +10,7 @@
 # Libraries
 from faker import *
 from random import *
+import sys
 import uuid
 import traceback
 import subprocess
@@ -255,11 +256,17 @@ if __name__ == '__main__':
 
     # Define the variables
     # Number of registrations
-    numOfRegs = 10000000
+    print "#====================#"
+    print "Enter number of registrations(ex: 500):"
+    numOfRegs = int(raw_input())
     # Interval for the stream
-    intrvl = 5
+    print "#====================#"
+    print "Enter interval for system(ex: 5):"
+    intrvl = int(raw_input())
     # duration for the batch/stream in minutes
-    duration = 60
+    print "#====================#"
+    print "Enter duration for system(ex: 60):"
+    duration = int(raw_input())
 
     # Initialize the main class and run through
     thisEngne =  DataEngine(numOfRegs,intrvl,duration)

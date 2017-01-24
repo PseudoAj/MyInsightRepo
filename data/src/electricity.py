@@ -30,6 +30,9 @@ class Electricity():
         # Set the file to write the elecrticity data
         self.elecFilePath = elecFilePath
 
+        # set the start date
+        self.strtDate = 
+
         # put all registrations into one dict
         # structure:
         # {service_id:
@@ -52,6 +55,15 @@ class Electricity():
     # Method to generate the data
     def generate(self):
 
+        # first generate a hashmaps
+        self.genHashMaps()
+
+        # simulate events
+
+
+
+    # Method to generate the hashmaps
+    def genHashMaps(self):
         # Put everything into one dict
         # Read the user data file
         with open(self.regDataFilePath) as regDataFile:
@@ -114,3 +126,25 @@ class Electricity():
 
         # Return the values
         return service_id, user_name, type, strtTime, state
+
+    # Method to write the data to a certain file
+    def writeFile(self, filePath, data):
+        # Try writing the file
+        try:
+            # open and write the data list
+            with open(filePath,'a+') as curFile:
+                # write down the data passed on to it
+                curFileWrtr = csv.writer(curFile)
+                curFileWrtr.writerow(data)
+
+            # Debug statement
+            # print "#====================#"
+            # print "Data written to csv: "+str(data)
+
+            # Return a cute true
+            return True
+
+        # Exception
+        except Exception:
+            traceback.print_exc()
+            return False

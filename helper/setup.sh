@@ -7,6 +7,10 @@
 #version         :0.1
 #==============================================================================
 
+# Ritual to update the files for no reson
+sudo apt-get update
+
 # Install python and all the required packages
 pip install Faker
-pip install radar
+
+# clone the git

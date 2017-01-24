@@ -10,10 +10,12 @@ The current utility systems are outdated and this is engineered data pipeline to
 * python
   * [Faker](https://faker.readthedocs.io/en/latest/index.html)
   * [radar](https://pypi.python.org/pypi/radar)
-  * [usaddress](https://github.com/datamade/usaddress)
   * [uuid](http://stackoverflow.com/a/1210469/4085019)(Default)
   * Datetime (Default)
   * traceback (Default)
+  * csv (Default)
+  * sys (Default)
+  * subprocess (Default)
 
 ## Data format
 
