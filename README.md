@@ -9,7 +9,10 @@ The current utility systems are outdated and this is engineered data pipeline to
 * [pegasus](https://github.com/InsightDataScience/pegasus)
 * python
   * [Faker](https://faker.readthedocs.io/en/latest/index.html)
+  * [radar](https://pypi.python.org/pypi/radar)
+  * [usaddress](https://github.com/datamade/usaddress)
   * [uuid](http://stackoverflow.com/a/1210469/4085019)(Default)
+  * Datetime (Default)
   * traceback (Default)
 
 ## Data format
@@ -23,6 +26,8 @@ The idea is to create as realistic dataset as possible; hence the dataset is ins
 ### Considerations
 
 1. Based on [census](http://www.census.gov/quickfacts/table/PST045216/36) it is evident that there `536,890` business establishments and `8,206,739` households in in NYC; thats about `6.14%`. The same ratio is replicated while generating data.
+
+1. As a standard for communicating date and time; UTC timestamps are used. Thanks to [Date Time to Unix Time Stamp](http://stackoverflow.com/a/35106099/4085019)
 
 ### Schema
 

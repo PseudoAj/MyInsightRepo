@@ -43,7 +43,14 @@ peg up master.yml
 peg up workers.yml
 
 ## fetch
+eval `ssh-agent -s`
 peg fetch $clustername
+
+## Update for no reason
+peg sshcmd-cluster de-ny-ajay "sudo apt-get update"
+
+## Install git
+peg sshcmd-cluster de-ny-ajay "sudo apt-get install git"
 #==============================================================================
 
 # 3. Install ssh aws and everything else
@@ -53,16 +60,19 @@ peg install $clustername ssh
 ## aws
 peg install $clustername aws
 ## hadoop
-peg install $clustername hadoop
-## spark
-peg install $clustername spark
-## Kafka
-peg install $clustername kafka
-## Kafka manager
-peg install $clustername kafka-manager
+# peg install $clustername hadoop
+# ## spark
+# peg install $clustername spark
+# ## Zookeeper
+# peg install $clustername zookeeper
+# ## Kafka
+# peg install $clustername kafka
+# ## Kafka manager
+# peg install $clustername kafka-manager
 
 ## Start both the services
-peg service $clustername hadoop start
-peg service $clustername spark start
-peg service $clustername kafka start
-peg service $clustername kafka-manager start
+# peg service $clustername hadoop start
+# peg service $clustername spark start
+# peg service $clustername zookeeper start
+# peg service $clustername kafka start
+# peg service $clustername kafka-manager start
