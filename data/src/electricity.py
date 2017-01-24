@@ -31,7 +31,6 @@ class Electricity():
         self.elecFilePath = elecFilePath
 
         # set the start date
-        self.strtDate = 
 
         # put all registrations into one dict
         # structure:
