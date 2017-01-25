@@ -10,3 +10,4 @@
 # Install python and all the required packages
 pip install Faker
 pip install radar
+pip install kafka-python
