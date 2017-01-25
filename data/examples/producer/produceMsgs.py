@@ -54,3 +54,6 @@ if __name__ == '__main__':
 
     # initialize the class
     thisProducer = Producer(cnctnAddr)
+
+    # start the producer
+    thisProducer.produceMsgs()
