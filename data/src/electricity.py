@@ -13,6 +13,7 @@ import datetime
 import random
 import traceback
 import csv
+
 #==============================================================================
 
 # Implementation
@@ -60,6 +61,9 @@ class Electricity():
 
         # put all the data for the time in one dict
         self.timeDataDict = {}
+
+        # client for the connection
+        self.client = SimpleClient(addr)
 
 
         # Debug statement
@@ -239,3 +243,7 @@ class Electricity():
         except Exception:
             traceback.print_exc()
             return False
+
+    # Method to write the data into kafka
+    def produceStreat(self):
+        print "Producer started"

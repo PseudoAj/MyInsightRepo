@@ -267,6 +267,19 @@ if __name__ == '__main__':
     print "#====================#"
     print "Enter duration for system(ex: 60 days):"
     duration = int(raw_input())
+    # check if you want to produce
+    print "#====================#"
+    print "Do you want to run producer?(y/n):"
+    isProducer = str(raw_input())
+    # Get additional info you want to run a producer
+    if isProducer=='y':
+        print "#====================#"
+        print "please enter address(ex: 172.31.0.232):"
+        ipAddr = str(raw_input())
+        print "#====================#"
+        print "please partition key(ex: 172.31.0.232):"
+        prtitnKey = str(raw_input())
+
 
     # Initialize the main class and run through
     thisEngne =  DataEngine(numOfRegs,intrvl,duration)
