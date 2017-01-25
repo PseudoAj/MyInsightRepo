@@ -30,10 +30,10 @@ class DataEngine():
         # Assign the number of registrations to create
         self.numOfRegs = numOfRegs
 
-        # Assign the interval for the sensors
+        # Assign the interval in days for the sensors
         self.intrvl = intrvl
 
-        # Define the duration for data generation
+        # Define the duration in seconds for data generation
         self.duration = duration
 
         # Assign a percentile of business
@@ -45,7 +45,7 @@ class DataEngine():
 
         # Define the time for batch
         self.btchStrtTime = '2017-01-1T00:00:00'
-        self.btchEndTime = '2017-01-03T23:59:59'
+        self.btchEndTime = '2017-01-1T00:01:00'
 
         # Initialize the faker class for generating data
         self.faker = Faker()
@@ -182,7 +182,7 @@ class DataEngine():
         cmpnyNme = str(self.faker.company())
         type = 'business'
         # Generate a random starting time
-        regTime = radar.random_datetime(start='2017-01-1T00:00:00', stop='2017-01-03T23:59:59')
+        regTime = radar.random_datetime(start='2017-01-1T00:00:00', stop='2017-01-01T23:59:59')
         regTime = regTime.strftime("%s")
         state = str(choice(self.states))
         srvceZipCode = self.faker.zipcode()
@@ -257,15 +257,15 @@ if __name__ == '__main__':
     # Define the variables
     # Number of registrations
     print "#====================#"
-    print "Enter number of registrations(ex: 500):"
+    print "Enter number of registrations(ex: 500 users/businesses):"
     numOfRegs = int(raw_input())
     # Interval for the stream
     print "#====================#"
-    print "Enter interval for system(ex: 5):"
+    print "Enter interval for system(ex: 5 seconds):"
     intrvl = int(raw_input())
     # duration for the batch/stream in minutes
     print "#====================#"
-    print "Enter duration for system(ex: 60):"
+    print "Enter duration for system(ex: 60 days):"
     duration = int(raw_input())
 
     # Initialize the main class and run through

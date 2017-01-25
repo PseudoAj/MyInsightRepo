@@ -9,6 +9,10 @@
 
 # Libraries
 
+import datetime
+import random
+import traceback
+import csv
 #==============================================================================
 
 # Implementation
@@ -19,10 +23,13 @@ class Electricity():
     def __init__(self,intrvl,duration,regFilePath,elecFilePath):
 
         # Define the intrvl
-        self.intrvl = intrvl
+        self.intrvl = datetime.timedelta(seconds=int(intrvl))
+
+        # Define step size
+        self.step = datetime.timedelta(seconds=1)
 
         # Define the duration
-        self.duration = duration
+        self.duration = datetime.timedelta(days=int(duration))
 
         # Set the file path for the registrations
         self.regDataFilePath = regFilePath
@@ -30,7 +37,14 @@ class Electricity():
         # Set the file to write the elecrticity data
         self.elecFilePath = elecFilePath
 
+        # define a header to work with
+        self.elecHeaderData = ['service_id', 'user_name','type','reg_time','state','consumption','end_time']
+
         # set the start date
+        self.elctStrtTime = datetime.datetime(2017, 01, 01, 00, 00, 00)
+
+        # calculate the end time
+        self.elctEndTime = self.elctStrtTime + self.duration
 
         # put all registrations into one dict
         # structure:
@@ -47,6 +61,7 @@ class Electricity():
         # put all the data for the time in one dict
         self.timeDataDict = {}
 
+
         # Debug statement
         # print "#====================#"
         # print "Electricity initialized with "+str(self.intrvl)+" interval, "+str(self.duration)+" duration and filepath of "+str(self.regDataFilePath)
@@ -54,10 +69,87 @@ class Electricity():
     # Method to generate the data
     def generate(self):
 
+        # write the header first
+        self.writeFile(self.elecFilePath,self.elecHeaderData)
+
         # first generate a hashmaps
         self.genHashMaps()
 
         # simulate events
+        # Assume current time is start time
+        curTime = self.elctStrtTime
+
+        # Run through the loop
+        while curTime < self.elctEndTime:
+
+            # Convert the current time into a unix time stamp
+            curStrTime = curTime.strftime("%s")
+
+            # New time stamp
+            newTime = curTime + self.intrvl
+            newTimeStmp = newTime.strftime("%s")
+
+
+            # check if it exists in the time dict
+            if int(curStrTime) in self.timeDataDict:
+
+                # write a value for this data
+                # get the service_id
+                curSrvceList = self.timeDataDict.get(int(curStrTime))
+
+                # for all the service id write the record
+                for curSrvceId in curSrvceList:
+                    # Get the dictionary
+                    curRcrdDict = self.regDataDict.get(str(curSrvceId))
+
+                    # pass on the dict to wite the csv file
+                    curRcrdRow = self.genElecRow(curRcrdDict,int(curStrTime),int(newTimeStmp))
+
+                    # write into the file
+                    self.writeFile(self.elecFilePath,curRcrdRow)
+
+
+                # Debug statement
+                # print str(curSrvceId) +","+ str(curRcrdDict)
+                # raw_input()
+
+                # update the next time stamp by pop and insert
+                # print self.timeDataDict.get(int(curStrTime))
+                self.timeDataDict[int(newTimeStmp)] = self.timeDataDict.get(int(curStrTime))
+                self.timeDataDict.pop(int(curStrTime))
+
+            # increment curTime
+            curTime+=self.step
+
+            # Debug statement
+            # print "Current time: "+str(curStrTime)+" ,next timestamp: "+str(newTimeStmp)+" dict: "+str(self.timeDataDict)
+            # raw_input()
+
+    # Function for reading the dictionary and generating a consumption rate
+    def genElecRow(self,rcrdDict,startTime,endTime):
+
+        # variable to store the row
+        curRcrd = []
+
+        # get all the attributes
+        service_id = rcrdDict.get('service_id')
+        user_name = rcrdDict.get('user_name')
+        type = rcrdDict.get('type')
+        strtTime = rcrdDict.get('strtTime')
+        state = rcrdDict.get('state')
+        consumption = float(random.triangular(0,0.30))
+
+        # append the attributes to one list
+        curRcrd.append(service_id)
+        curRcrd.append(user_name)
+        curRcrd.append(type)
+        curRcrd.append(startTime)
+        curRcrd.append(state)
+        curRcrd.append(consumption)
+        curRcrd.append(endTime)
+
+        # return the list
+        return curRcrd
 
 
 
@@ -101,7 +193,7 @@ class Electricity():
                 # print "Current service id: "+str(service_id)+",start time: "+str(strtTime)+",username: "+str(user_name)+",type: "+str(type)
 
             # Debug statement
-            print len(self.regDataDict)
+            # print len(self.regDataDict)
             # print self.regDataDict
             # raw_input()
             # print "Current service id: "+str(service_id)+",start time: "+str(strtTime)+",username: "+str(user_name)+",type: "+str(type)
