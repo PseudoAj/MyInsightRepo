@@ -24,7 +24,7 @@ class Producer():
         self.cnctnAddr = cnctnAddr
 
         # Initialize a new producer
-        producer = KafkaProducer(bootstrap_servers=self.cnctnAddr)
+        self.producer = KafkaProducer(bootstrap_servers=self.cnctnAddr)
 
         # define the toic you want to send
         self.topic = 'electricity'
@@ -42,7 +42,7 @@ class Producer():
         while True:
 
             # send the data
-            producer.send(self.topic, bcurData)
+            self.producer.send(self.topic, bcurData)
             # Increament
             self.prdceCnt += 1
 
