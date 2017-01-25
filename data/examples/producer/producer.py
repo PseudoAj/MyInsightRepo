@@ -24,7 +24,7 @@ class Producer(object):
 
         self.client = SimpleClient(addr)
         self.producer = KeyedProducer(self.client)
-        self.topic = 'test_ajay_topic'
+        self.topic = 'ajay_test_topic'
 
     # Main method for simulation
     def produce_msgs(self, source_symbol):
