@@ -129,6 +129,9 @@ class Electricity():
                     # send them through the producer
                     self.produceStream(curRcrdRowStr)
 
+                    # Debug statement
+                    print curRcrdRowStr
+
 
                 # Debug statement
                 # print str(curSrvceId) +","+ str(curRcrdDict)
