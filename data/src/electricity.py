@@ -243,6 +243,9 @@ class Electricity():
                 curFileWrtr = csv.writer(curFile)
                 curFileWrtr.writerow(data)
 
+            # also write it on the producer
+            self.produceStream(data)
+
             # Debug statement
             # print "#====================#"
             # print "Data written to csv: "+str(data)
@@ -256,13 +259,10 @@ class Electricity():
             return False
 
     # Method to write the data into kafka
-    def produceStream(self):
-
-        # Generate some data
-        curData = 'test data'
+    def produceStream(self,curData):
 
         # Send data continously
         while True:
 
             # send the data
-            self.producer.send(self.topic, curData)        
+            self.producer.send(self.topic, curData)
