@@ -123,6 +123,12 @@ class Electricity():
                     # write into the file
                     self.writeFile(self.elecFilePath,curRcrdRow)
 
+                    # send the data in producers
+                    # Append them as a csv row
+                    curRcrdRowStr = ",".join(curRcrdRow)
+                    # send them through the producer
+                    self.produceStream(curRcrdRowStr)
+
 
                 # Debug statement
                 # print str(curSrvceId) +","+ str(curRcrdDict)
@@ -244,7 +250,7 @@ class Electricity():
                 curFileWrtr.writerow(data)
 
             # also write it on the producer
-            self.produceStream(data)
+            # self.produceStream(data)
 
             # Debug statement
             # print "#====================#"
