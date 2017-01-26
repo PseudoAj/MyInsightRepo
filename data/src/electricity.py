@@ -281,8 +281,5 @@ class Electricity():
     # Method to write the data into kafka
     def produceStream(self,curData):
 
-        # Send data continously
-        while True:
-
-            # send the data
-            self.producer.send(self.topic, curData[0])
+        # send the data
+        self.producer.send(self.topic, curData)
