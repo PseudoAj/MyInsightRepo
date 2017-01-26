@@ -126,11 +126,12 @@ class Electricity():
                     # send the data in producers
                     # Append them as a csv row
                     curRcrdRowStr = self.convrtLstToCSV(curRcrdRow)
-                    # send them through the producer
-                    self.produceStream(curRcrdRowStr)
 
                     # Debug statement
                     print curRcrdRowStr
+
+                    # send them through the producer
+                    self.produceStream(curRcrdRowStr)
 
 
                 # Debug statement
