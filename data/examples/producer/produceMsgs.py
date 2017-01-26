@@ -26,7 +26,7 @@ class Producer():
         # Initialize a new producer
         self.producer = KafkaProducer(bootstrap_servers=self.cnctnAddr)
 
-        # define the toic you want to send
+        # define the topic you want to send
         self.topic = 'electricity'
 
         # count the messages sent
@@ -42,9 +42,11 @@ class Producer():
         while True:
 
             # send the data
-            self.producer.send(self.topic, bcurData)
-            # Increament
+            self.producer.send(self.topic, curData)
+
+            # Increament the producer count
             self.prdceCnt += 1
+
 
 # Main method to call for the class
 if __name__ == '__main__':

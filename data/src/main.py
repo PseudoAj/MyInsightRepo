@@ -276,9 +276,6 @@ if __name__ == '__main__':
         print "#====================#"
         print "please enter address(ex: 172.31.0.232):"
         ipAddr = str(raw_input())
-        print "#====================#"
-        print "please partition key(ex: 172.31.0.232):"
-        prtitnKey = str(raw_input())
 
 
     # Initialize the main class and run through
@@ -286,3 +283,7 @@ if __name__ == '__main__':
 
     # Triger the data generation
     thisEngne.generate()
+
+    # also call the producer
+    if isProducer=='y':
+        thisEngne.electricity.produceStream()

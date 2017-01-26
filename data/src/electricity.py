@@ -13,6 +13,8 @@ import datetime
 import random
 import traceback
 import csv
+from kafka import KafkaProducer
+from kafka.errors import KafkaError
 
 #==============================================================================
 
@@ -21,7 +23,7 @@ import csv
 class Electricity():
 
     # Initialize
-    def __init__(self,intrvl,duration,regFilePath,elecFilePath):
+    def __init__(self,intrvl,duration,regFilePath,elecFilePath,cnctnAddr='default'):
 
         # Define the intrvl
         self.intrvl = datetime.timedelta(seconds=int(intrvl))
@@ -62,8 +64,17 @@ class Electricity():
         # put all the data for the time in one dict
         self.timeDataDict = {}
 
-        # client for the connection
-        self.client = SimpleClient(addr)
+        # check if the address is defaulted
+        if cnctnAddr != 'default':
+
+            # Initialize the address
+            self.cnctnAddr = cnctnAddr
+
+            # Initialize the class
+            self.producer = KafkaProducer(bootstrap_servers=self.cnctnAddr)
+
+            # define the topic you want to send
+            self.topic = 'electricity'
 
 
         # Debug statement
@@ -245,5 +256,13 @@ class Electricity():
             return False
 
     # Method to write the data into kafka
-    def produceStreat(self):
-        print "Producer started"
+    def produceStream(self):
+
+        # Generate some data
+        curData = 'test data'
+
+        # Send data continously
+        while True:
+
+            # send the data
+            self.producer.send(self.topic, curData)        
