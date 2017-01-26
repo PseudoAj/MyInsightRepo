@@ -25,7 +25,7 @@ import electricity
 class DataEngine():
 
     # Initialization
-    def __init__(self,numOfRegs,intrvl,duration):
+    def __init__(self,numOfRegs,intrvl,duration,cnctnAddr='default'):
 
         # Assign the number of registrations to create
         self.numOfRegs = numOfRegs
@@ -74,11 +74,19 @@ class DataEngine():
         # create the path for electricity data file
         self.elecDataFilePath = self.utilityDataDir+self.elecDataFileName
 
-        # Initialize the electricity class
-        self.electricity = electricity.Electricity(self.intrvl,self.duration,self.regDataFilePath,self.elecDataFilePath)
+        # assigin ip address
+        if cnctnAddr!='default':
+            # trigger the variable for address
+            self.cnctnAddr=cnctnAddr
+            self.electricity = electricity.Electricity(self.intrvl,self.duration,self.regDataFilePath,self.elecDataFilePath,self.cnctnAddr)
+        else:
+            # Initialize the electricity class
+            self.electricity = electricity.Electricity(self.intrvl,self.duration,self.regDataFilePath,self.elecDataFilePath)
+
 
         # Clear some files before attempting to write
         self.cleanFiles()
+
 
         # Debug statement
         # print "#====================#"
@@ -139,6 +147,14 @@ class DataEngine():
 
         # Similarly trigger the electricity
         self.electricity.generate()
+
+    # The only reason this method exists is to run the producer
+    def startProducer(self):
+
+        # trigger the electricity class
+        self.electricity.produceStream()
+
+
 
     # Method to create one user
     def genUsr(self):
@@ -277,13 +293,16 @@ if __name__ == '__main__':
         print "please enter address(ex: 172.31.0.232):"
         ipAddr = str(raw_input())
 
-
-    # Initialize the main class and run through
-    thisEngne =  DataEngine(numOfRegs,intrvl,duration)
+    # also call the producer
+    if isProducer=='y':
+        # Initialize the main class with address
+        thisEngne =  DataEngine(numOfRegs,intrvl,duration,ipAddr)
+    else:
+        # Initialize the main class and run through
+        thisEngne =  DataEngine(numOfRegs,intrvl,duration)
 
     # Triger the data generation
     thisEngne.generate()
 
-    # also call the producer
-    if isProducer=='y':
-        thisEngne.electricity.produceStream()
+    # Trigger producer
+    thisEngne.startProducer()
