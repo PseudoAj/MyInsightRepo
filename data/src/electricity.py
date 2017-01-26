@@ -127,11 +127,11 @@ class Electricity():
                     # Append them as a csv row
                     curRcrdRowStr = self.convrtLstToCSV(curRcrdRow)
 
-                    # Debug statement
-                    print curRcrdRowStr
+                    # # Debug statement
+                    # print curRcrdRowStr
 
                     # send them through the producer
-                    self.produceStream(curRcrdRowStr)
+                    self.produceStream(curSrvceId, curRcrdRowStr)
 
 
                 # Debug statement
@@ -279,7 +279,7 @@ class Electricity():
             return False
 
     # Method to write the data into kafka
-    def produceStream(self,curData):
+    def produceStream(self,curKey,curData):
 
         # send the data
-        self.producer.send(self.topic, curData)
+        self.producer.send(self.topic, key=str(curKey), value=curData)

@@ -303,6 +303,3 @@ if __name__ == '__main__':
 
     # Triger the data generation
     thisEngne.generate()
-
-    # Trigger producer
-    thisEngne.startProducer()
