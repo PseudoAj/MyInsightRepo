@@ -35,7 +35,7 @@ class Consumer():
     def consumeMsgs(self):
 
         # Loop through the consumer
-        for data in self.consumer:
+        for message in self.consumer:
 
             # Print the consumer
             print "Message topic: "+str(message.topic)+" Message partition: "+str(message.partition)+" Message offset: "+str(message.offset)+" Message key: "+str(message.key)+" Message value: "+str(message.value)

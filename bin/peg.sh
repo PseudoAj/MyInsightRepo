@@ -47,10 +47,10 @@ eval `ssh-agent -s`
 peg fetch $clustername
 
 ## Update for no reason
-peg sshcmd-cluster de-ny-ajay "sudo apt-get update"
+peg sshcmd-cluster $clustername "sudo apt-get update"
 
 ## Install git
-peg sshcmd-cluster de-ny-ajay "sudo apt-get install git"
+peg sshcmd-cluster $clustername "sudo apt-get install git"
 #==============================================================================
 
 # 3. Install ssh aws and everything else

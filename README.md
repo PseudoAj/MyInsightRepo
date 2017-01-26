@@ -1,23 +1,16 @@
-# Utility Things
+# Utility Things: Is my toilet broke?
+
+## TL;DR: What is this project?
+
+A robust Internet of Things (IoT) data pipeline.
 
 ## Motivation
 
 The current utility systems are outdated and this is engineered data pipeline to accommodate the next generation of devices.
 
-## Requirements
+## Technical Stack
 
-* [pegasus](https://github.com/InsightDataScience/pegasus)
-* python
-  * [Faker](https://faker.readthedocs.io/en/latest/index.html)
-  * [radar](https://pypi.python.org/pypi/radar)
-  * [uuid](http://stackoverflow.com/a/1210469/4085019)(Default)
-  * Datetime (Default)
-  * traceback (Default)
-  * csv (Default)
-  * sys (Default)
-  * subprocess (Default)
-
-## Data format
+## Sensors
 
 ### Idea
 
@@ -60,3 +53,27 @@ The schema for the data:
   12. utility_tariff_name
 
 ```
+
+## Ingestion
+
+## Processing
+
+### 1. Stream processing
+Inspired by [apache post on monitoring](https://flink.apache.org/news/2016/04/06/cep-monitoring.html); Apache Flink is selected as a way to process the incoming stream.
+
+### 2. Batch processing
+
+## Contributing
+
+### Requirements
+
+* [pegasus](https://github.com/InsightDataScience/pegasus)
+* python
+  * [Faker](https://faker.readthedocs.io/en/latest/index.html)
+  * [radar](https://pypi.python.org/pypi/radar)
+  * [uuid](http://stackoverflow.com/a/1210469/4085019)(Default)
+  * Datetime (Default)
+  * traceback (Default)
+  * csv (Default)
+  * sys (Default)
+  * subprocess (Default)
