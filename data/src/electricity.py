@@ -150,8 +150,8 @@ class Electricity():
     def convrtLstToCSV(self, lst):
 
         # covert each part as string
-        for rcrd in lst:
-            rcrd = str(rcrd)
+        for idx,rcrd in enumerate(lst):
+            lst[idx] = str(rcrd)
 
         # return with join
         return ",".join(lst)
