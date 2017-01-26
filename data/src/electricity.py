@@ -265,4 +265,4 @@ class Electricity():
         while True:
 
             # send the data
-            self.producer.send(self.topic, curData)
+            self.producer.send(self.topic, curData[0])
