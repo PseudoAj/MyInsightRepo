@@ -125,7 +125,7 @@ class Electricity():
 
                     # send the data in producers
                     # Append them as a csv row
-                    curRcrdRowStr = ",".join(curRcrdRow)
+                    curRcrdRowStr = self.convrtLstToCSV(curRcrdRow)
                     # send them through the producer
                     self.produceStream(curRcrdRowStr)
 
@@ -145,6 +145,16 @@ class Electricity():
             # Debug statement
             # print "Current time: "+str(curStrTime)+" ,next timestamp: "+str(newTimeStmp)+" dict: "+str(self.timeDataDict)
             # raw_input()
+
+    # function to convert given list of strings and integers to a csv line
+    def convrtLstToCSV(self, lst):
+
+        # covert each part as string
+        for rcrd in lst:
+            rcrd = str(rcrd)
+
+        # return with join
+        return ",".join(lst)
 
     # Function for reading the dictionary and generating a consumption rate
     def genElecRow(self,rcrdDict,startTime,endTime):
