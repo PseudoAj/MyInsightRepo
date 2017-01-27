@@ -23,10 +23,30 @@ import csv
 class UsersEngine():
 
     # Initialization
-    def __init__(self):
+    def __init__(self,numOfRegs,intrvl,duration):
 
         # Debug statement
         print "Initialization"
+
+        # Assign the number of registrations to create
+        self.numOfRegs = numOfRegs
+
+        # Assign the interval in days for the sensors
+        self.intrvl = intrvl
+
+        # Define the duration in seconds for data generation
+        self.duration = datetime.timedelta(secs=500)
+
+        # Assign a percentile of business
+        self.bizPrcnt = 6
+
+        # Assign the percentile of users and business
+        self.numOfBizs = int(self.bizPrcnt*self.numOfRegs/100)
+        self.numOfUsrs = self.numOfRegs-self.numOfBizs
+
+        # Define the time for generating batch
+        self.btchEndTime = datetime.datetime.now()
+
 
 # The main method to trigger the execution
 if __name__ == '__main__':
@@ -44,8 +64,9 @@ if __name__ == '__main__':
     intrvl = int(raw_input())
     # duration for the batch/stream in minutes
     print "#====================#"
-    print "Enter duration for system(ex: 60 days):"
+    print "Enter duration for system(ex: 60 senconds):"
     duration = int(raw_input())
 
-
     # create object for triggering execution
+    ## Initialize the main class and run through
+    thisEngne =  UsersEngine(numOfRegs,intrvl,duration)

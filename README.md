@@ -63,7 +63,7 @@ Inspired by [apache post on monitoring](https://flink.apache.org/news/2016/04/06
 
 ### 2. Batch processing
 
-## Contributing
+## Developing
 
 ### Requirements
 
@@ -77,3 +77,7 @@ Inspired by [apache post on monitoring](https://flink.apache.org/news/2016/04/06
   * csv (Default)
   * sys (Default)
   * subprocess (Default)
+
+## References and resources
+
+* [IntelliJ: How to build jars](http://stackoverflow.com/questions/1082580/how-to-build-jars-from-intellij-properly)
