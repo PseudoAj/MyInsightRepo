@@ -44,7 +44,7 @@ class Consumer():
 if __name__ == '__main__':
 
     # Define the address
-    cnctnAddr = '172.31.0.232:9092'
+    cnctnAddr = '172.31.0.234:9092'
 
     # Initialize the class
     thisConsumer = Consumer(cnctnAddr)
