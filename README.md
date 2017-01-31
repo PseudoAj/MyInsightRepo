@@ -1,4 +1,4 @@
-# Utility Things: Is my toilet broke?
+![cover](misc/images/cover.png)
 
 ## TL;DR: What is this project?
 
