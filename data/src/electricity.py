@@ -64,11 +64,11 @@ class Electricity():
         # put all the data for the time in one dict
         self.timeDataDict = {}
 
-        # check if the address is defaulted
-        if cnctnAddr != 'default':
+        # Initialize the address
+        self.cnctnAddr = cnctnAddr
 
-            # Initialize the address
-            self.cnctnAddr = cnctnAddr
+        # check if the address is defaulted
+        if self.cnctnAddr != 'default':
 
             # Initialize the class
             self.producer = KafkaProducer(bootstrap_servers=self.cnctnAddr)
@@ -123,15 +123,19 @@ class Electricity():
                     # write into the file
                     self.writeFile(self.elecFilePath,curRcrdRow)
 
-                    # send the data in producers
-                    # Append them as a csv row
-                    curRcrdRowStr = self.convrtLstToCSV(curRcrdRow)
+                    # Check if the producer exists
+                    if self.cnctnAddr != 'default':
 
-                    # # Debug statement
-                    # print curRcrdRowStr
+                        # send the data in producers
+                        # Append them as a csv row
+                        curRcrdRowStr = self.convrtLstToCSV(curRcrdRow)
 
-                    # send them through the producer
-                    self.produceStream(curSrvceId, curRcrdRowStr)
+                        # send them through the producer
+                        self.produceStream(curSrvceId, curRcrdRowStr)
+
+                        # # Debug statement
+                        # print curRcrdRowStr
+
 
 
                 # Debug statement
