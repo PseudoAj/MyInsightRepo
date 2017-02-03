@@ -102,3 +102,5 @@ Inspired by [apache post on monitoring](https://flink.apache.org/news/2016/04/06
 * [Flink Event Time](https://ci.apache.org/projects/flink/flink-docs-release-1.2/dev/event_time.html)
 
 * [Example: Event Time with Flink](https://github.com/sameeraxiomine/flinkinaction/blob/acbc29ff20378af75b8e1effb0abc678e1ebb049/flinkinactionjava/src/main/java/com/manning/fia/c05/TumblingEventTimeUsingAscendingWM.java)
+
+* [How to save pickle object](http://stackoverflow.com/questions/11218477/how-can-i-use-pickle-to-save-a-dict)
