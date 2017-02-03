@@ -8,9 +8,33 @@ A robust Internet of Things (IoT) data pipeline.
 
 The current utility systems are outdated and this is engineered data pipeline to accommodate the next generation of devices.
 
+## Pipeline Layout
+
 ## Technical Stack
 
-## Sensors
+Following technologies, libraries and languages have been used for building this project:
+
+* [pegasus](https://github.com/InsightDataScience/pegasus)
+* Amazon aws
+* Amazon s3
+* python
+  * [Faker](https://faker.readthedocs.io/en/latest/index.html)
+  * [radar](https://pypi.python.org/pypi/radar)
+  * [uuid](http://stackoverflow.com/a/1210469/4085019)(Default)
+  * Datetime (Default)
+  * traceback (Default)
+  * csv (Default)
+  * sys (Default)
+  * subprocess (Default)
+
+
+## 1. Data Ingestion
+
+## 2. Batch Processing
+
+## 3. Stream Processing
+
+## 4. Web Application
 
 ### Idea
 
@@ -63,21 +87,18 @@ Inspired by [apache post on monitoring](https://flink.apache.org/news/2016/04/06
 
 ### 2. Batch processing
 
-## Developing
+## Challenges
 
-### Requirements
+1. Data Skewing
 
-* [pegasus](https://github.com/InsightDataScience/pegasus)
-* python
-  * [Faker](https://faker.readthedocs.io/en/latest/index.html)
-  * [radar](https://pypi.python.org/pypi/radar)
-  * [uuid](http://stackoverflow.com/a/1210469/4085019)(Default)
-  * Datetime (Default)
-  * traceback (Default)
-  * csv (Default)
-  * sys (Default)
-  * subprocess (Default)
+<pre>
+
+</pre>
 
 ## References and resources
 
 * [IntelliJ: How to build jars](http://stackoverflow.com/questions/1082580/how-to-build-jars-from-intellij-properly)
+
+* [Flink Event Time](https://ci.apache.org/projects/flink/flink-docs-release-1.2/dev/event_time.html)
+
+* [Example: Event Time with Flink](https://github.com/sameeraxiomine/flinkinaction/blob/acbc29ff20378af75b8e1effb0abc678e1ebb049/flinkinactionjava/src/main/java/com/manning/fia/c05/TumblingEventTimeUsingAscendingWM.java)
