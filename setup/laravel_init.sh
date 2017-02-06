@@ -11,6 +11,8 @@
 PROJECT_NAME="auth"
 WEB_ROOT="/var/www/html/"
 PROJECT_DIR="/home/ubuntu/MyInsightRepo/laravel/"
+CONF_PATH="/etc/apache2/apache2.conf"
+PRJCT_CONF="/home/ubuntu/MyInsightRepo/misc/apache2.conf"
 
 # Remove if something already exists
 sudo rm -rf $WEB_ROOT$PROJECT_NAME
@@ -29,6 +31,6 @@ sudo mv $PROJECT_DIR$PROJECT_NAME $WEB_ROOT
 chmod 775 $WEB_ROOT$PROJECT_NAME
 sudo chown -R www-data:www-data $WEB_ROOT$PROJECT_NAME
 sudo chmod 755 /var/www
-# sudo rm -R /etc/httpd/conf/httpd.conf
-# sudo ln -s /vagrant/serverConfiguration/httpd.conf /etc/httpd/conf
+sudo rm -R $CONF_PATH
+sudo ln -s $PRJCT_CONF /etc/apache2
 sudo service apache2 restart
