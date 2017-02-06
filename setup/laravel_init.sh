@@ -27,7 +27,7 @@ sudo mv $PROJECT_DIR$PROJECT_NAME $WEB_ROOT
 
 # Set the configurations
 chmod 775 $WEB_ROOT$PROJECT_NAME
-sudo chown -R apache:apache $WEB_ROOT$PROJECT_NAME
+sudo chown -R www-data:www-data $WEB_ROOT$PROJECT_NAME
 sudo chmod 755 /var/www
 # sudo rm -R /etc/httpd/conf/httpd.conf
 # sudo ln -s /vagrant/serverConfiguration/httpd.conf /etc/httpd/conf
