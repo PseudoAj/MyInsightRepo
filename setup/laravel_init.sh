@@ -10,13 +10,12 @@
 # variables
 PROJECT_NAME="auth"
 WEB_ROOT="/var/www/html/"
-PROJECT_DIR="MyInsightRepo/laravel/"
+PROJECT_DIR="/home/ubuntu/MyInsightRepo/laravel/"
 
 # Remove if something already exists
 sudo rm -rf $WEB_ROOT$PROJECT_NAME
 
 # Change the directory
-cd ~
 cd $PROJECT_DIR
 
 # Create a sample laravel project
