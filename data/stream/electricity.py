@@ -33,6 +33,7 @@ class Electricity():
 if __name__ == '__main__':
 
     # Read the arguments
+    
 
     # Debug statement
     print 'Argument List:', str(sys.argv)
