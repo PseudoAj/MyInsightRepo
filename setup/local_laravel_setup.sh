@@ -21,7 +21,7 @@ sudo rm -rf $WEB_ROOT$PROJECT_NAME
 sudo cp -R $PROJECT_DIR$PROJECT_NAME $WEB_ROOT
 
 # Set the configurations
-chmod 775 $WEB_ROOT$PROJECT_NAME
+sudo chmod 775 $WEB_ROOT$PROJECT_NAME
 sudo chown -R pseudoaj:pseudoaj $WEB_ROOT$PROJECT_NAME
 sudo chmod 755 /var/www
 sudo rm -R $CONF_PATH
