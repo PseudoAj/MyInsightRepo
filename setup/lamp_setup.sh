@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#title           :setup_laravel.sh
+#title           :lamp_setup.sh
 #description     :The script will install all the required packages for laravel
 #author		       :Ajay Krishna Teja Kavuri
 #date            :02062017
@@ -32,7 +32,7 @@ echo -e "----Started Apache----\n\n"
 
 # Start and set MySQl
 sudo service mysql start
-sudo service mysql enable 
+sudo service mysql enable
 echo -e "----Started MySQL----\n\n"
 
 # Install composer
