@@ -106,3 +106,7 @@ Inspired by [apache post on monitoring](https://flink.apache.org/news/2016/04/06
 * [How to save pickle object](http://stackoverflow.com/questions/11218477/how-can-i-use-pickle-to-save-a-dict)
 
 * [Redis Cluster Meet command](https://www.javacodegeeks.com/2015/09/redis-clustering.html)
+
+* [Enable PHP modules](http://stackoverflow.com/questions/24351260/how-to-check-which-php-extensions-have-been-enabled-disabled-in-ubuntu-linux-12)
+
+* [Start/Stop Services](http://askubuntu.com/questions/407075/how-to-read-service-status-all-results)
