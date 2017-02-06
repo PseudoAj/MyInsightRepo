@@ -67,12 +67,12 @@ class UsersEngine():
         self.timeDictFileName = "time"
 
         # Set the name for start time dict file
-        self.strtTimeFileName = "startTime"
+        self.metaDataFileName = "meta"
 
         # create the path for files
         self.regDataFilePath = self.regDataDir+self.regDataFileName
         self.timeDictFilePath = self.regDataDir+self.timeDictFileName
-        self.strtTimeFilePath = self.regDataDir+self.strtTimeFileName
+        self.metaDataFilePath = self.regDataDir+self.metaDataFileName
 
         # put all registrations into one dict
         # structure:
@@ -89,6 +89,13 @@ class UsersEngine():
         # put all the data for the time in one dict
         self.timeDataDict = {}
 
+        # put the metadata in one dict
+        self.regMetaDataDict = {}
+
+        # Assign required values values to meta
+        self.regMetaDataDict['strtTime'] = self.btchStrtTime
+        self.regMetaDataDict['numOfRegs'] = self.numOfRegs
+
         # Clear some files before attempting to write
         self.cleanFiles()
 
@@ -98,6 +105,18 @@ class UsersEngine():
         # Registration
         # Define the command
         thisCmd = 'rm -rf '+str(self.regDataFilePath)
+        # Run the command
+        self.runBash(thisCmd)
+
+        # Start time dictionaries
+        # Define the command
+        thisCmd = 'rm -rf '+str(self.timeDictFilePath)
+        # Run the command
+        self.runBash(thisCmd)
+
+        # Meta Data file
+        # Define the command
+        thisCmd = 'rm -rf '+str(self.metaDataFilePath)
         # Run the command
         self.runBash(thisCmd)
 
@@ -260,7 +279,7 @@ class UsersEngine():
         # Save the dictionary
         self.saveToPckl(self.regDataFilePath,self.regDataDict)
         self.saveToPckl(self.timeDictFilePath,self.timeDataDict)
-        self.saveToPckl(self.strtTimeFilePath,self.btchStrtTime)
+        self.saveToPckl(self.metaDataFilePath,self.btchStrtTime)
 
 # The main method to trigger the execution
 if __name__ == '__main__':
