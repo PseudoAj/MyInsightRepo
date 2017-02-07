@@ -35,6 +35,11 @@ sudo service mysql start
 sudo service mysql enable
 echo -e "----Started MySQL----\n\n"
 
+# Install Node, gulp and libnotify
+curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
+sudo apt-get install -y nodejs
+echo -e "----Installed Node and npm----\n\n"
+
 # Install composer
 curl -sS https://getcomposer.org/installer | php
 sudo chmod +x composer.phar

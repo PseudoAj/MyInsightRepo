@@ -22,7 +22,7 @@ sudo cp -R $PROJECT_DIR$PROJECT_NAME $WEB_ROOT
 
 # Set the configurations
 sudo chmod 775 $WEB_ROOT$PROJECT_NAME
-sudo chown -R pseudoaj:pseudoaj $WEB_ROOT$PROJECT_NAME
+sudo chown -R www-data:www-data $WEB_ROOT$PROJECT_NAME
 sudo chmod 755 /var/www
 sudo rm -R $CONF_PATH
 sudo ln -s $PRJCT_CONF /etc/apache2

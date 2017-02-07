@@ -22,7 +22,7 @@ cd $PROJECT_DIR
 
 # Create a sample laravel project
 # laravel new project-css
-composer create-project --prefer-dist laravel/laravel $PROJECT_NAME
+composer create-project --prefer-dist laravel/laravel $PROJECT_NAME "5.3.*"
 
 # Move into Apache
 sudo cp -R $PROJECT_DIR$PROJECT_NAME $WEB_ROOT
