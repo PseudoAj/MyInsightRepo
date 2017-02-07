@@ -6,8 +6,8 @@
   <!-- Heading -->
   <div class="container adminHeading">
     <span class="text-center">
-      <h2><a href="{{ url('/user') }}">Welcome Dude!!</a></h2>
-      <p>This is your portal to view your consumption in realtime</p>
+      <h2><a href="{{ url('/admin') }}">Welcome Captain!!</a></h2>
+      <p>An admin dashboard for overall statistics.</p>
     </span>
   </div>
 </div>
