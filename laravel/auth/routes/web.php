@@ -11,6 +11,12 @@
 |
 */
 
+// Route for welcom page
 Route::get('/', function () {
     return view('welcome');
+});
+
+// Route for user page
+Route::get('user', function () {
+    return view('user');
 });

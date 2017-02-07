@@ -33,4 +33,5 @@ sudo chown -R www-data:www-data $WEB_ROOT$PROJECT_NAME
 sudo chmod 755 /var/www
 sudo rm -R $CONF_PATH
 sudo ln -s $PRJCT_CONF /etc/apache2
+sudo a2enmod rewrite
 sudo service apache2 restart
