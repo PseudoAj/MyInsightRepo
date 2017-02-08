@@ -15,7 +15,7 @@
 <!-- Separation -->
 <hr/>
 
-<h1>{{$adminPageViews}}</h1>
+<h1 class="text-center">{{$adminPageViews}}</h1>
 
 
 @endsection
