@@ -1,4 +1,10 @@
 <?php
+/*
+|--------------------------------------------------------------------------
+| libraries
+|--------------------------------------------------------------------------
+*/
+use Illuminate\Support\Facades\Redis;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,15 +19,13 @@
 
 // Route for welcom page
 Route::get('/', function () {
-    return view('welcome');
+  return view('welcome');
 });
 
 // Route for user page
-Route::get('user', function () {
-    return view('user');
-});
+Route::get('user', 'UserController@show');
 
 // Route for admin page
 Route::get('admin', function () {
-    return view('admin');
+  return view('admin');
 });
