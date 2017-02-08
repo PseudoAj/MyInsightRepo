@@ -15,6 +15,7 @@
 <!-- Separation -->
 <hr/>
 
+<h1>{{$adminPageViews}}</h1>
 
 
 @endsection

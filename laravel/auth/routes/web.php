@@ -26,6 +26,4 @@ Route::get('/', function () {
 Route::get('user', 'UserController@show');
 
 // Route for admin page
-Route::get('admin', function () {
-  return view('admin');
-});
+Route::get('admin', 'AdminController@show');
