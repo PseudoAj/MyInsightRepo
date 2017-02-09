@@ -55,7 +55,7 @@ class UserController extends Controller {
     // Get the sum for consumption
     $eCnsmptnSum = $this->calcSumOfArr($eCnsmptn);
     // Formatting
-    $eCnsmptnSum=round($eCnsmptnSum);
+    $eCnsmptnSum=round($eCnsmptnSum,2);
 
     // Return the view
     return view('user')->with("user_id",$this->user_id)->with("eCnsmptnSum",$eCnsmptnSum);
