@@ -12,6 +12,7 @@
 import datetime
 import random
 import traceback
+import time
 import csv
 from kafka import KafkaProducer
 from kafka.errors import KafkaError
@@ -120,6 +121,10 @@ class Electricity():
                     # pass on the dict to wite the csv file
                     curRcrdRow = self.genElecRow(curRcrdDict,int(curStrTime),int(newTimeStmp))
 
+                    # # Debug statement
+                    # print "Writing: "+str(curSrvceId)+" at time: "+str(curStrTime)
+                    # raw_input()
+
                     # write into the file
                     self.writeFile(self.elecFilePath,curRcrdRow)
 
@@ -144,8 +149,19 @@ class Electricity():
 
                 # update the next time stamp by pop and insert
                 # print self.timeDataDict.get(int(curStrTime))
-                self.timeDataDict[int(newTimeStmp)] = self.timeDataDict.get(int(curStrTime))
+                # Check if the timestamp already exists
+                if int(newTimeStmp) in self.timeDataDict:
+                    # Append to existing list
+                    self.timeDataDict[int(newTimeStmp)] = self.timeDataDict.get(int(newTimeStmp))+self.timeDataDict.get(int(curStrTime))
+                else:
+                    # Else just create a new list
+                    self.timeDataDict[int(newTimeStmp)] = self.timeDataDict.get(int(curStrTime))
+                # remove the element
                 self.timeDataDict.pop(int(curStrTime))
+
+            # Sync with system time for producer
+            if self.cnctnAddr != 'default':
+                time.sleep(1)
 
             # increment curTime
             curTime+=self.step
