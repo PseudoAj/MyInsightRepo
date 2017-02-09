@@ -13,7 +13,16 @@ use Illuminate\Support\Facades\Redis;
 class UserController extends Controller {
 
   // Assign a global variable for user id
-  protected $user_id = "cb2dbb9a-46e4-414b-b3e8-99da84b3d8a0";
+  protected $user_id;
+
+  // Initilizer to get a random key
+  public function __construct(){
+    // check if user_id is set
+    if(empty($var)){
+      // get a key for instance
+      $this->user_id = Redis::randomkey();
+    }
+  }
 
   // Function to get the data from the redis database
   public function getElecCnsmptnList(){
@@ -49,6 +58,6 @@ class UserController extends Controller {
     $eCnsmptnSum=round($eCnsmptnSum);
 
     // Return the view
-    return view('user')->with("eCnsmptnSum",$eCnsmptnSum);
+    return view('user')->with("user_id",$this->user_id)->with("eCnsmptnSum",$eCnsmptnSum);
   }
 }

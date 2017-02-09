@@ -6,9 +6,10 @@
   <!-- Heading -->
   <div class="container adminHeading">
     <span class="text-center">
-      <h2><a href="{{ url('/user') }}">Welcome Dude!! Thanks to the data pipeline; this page loaded in <br/>
-
-      </br/>{{ (microtime(true) - LARAVEL_START) }}s</a></h2>
+      <h2><a href="{{ url('/user') }}">Welcome {{$user_id}}!!</a><br/>
+        Thanks to the data pipeline; this page loaded in <br/>
+        {{ (microtime(true) - LARAVEL_START) }}s
+      </h2>
       <p>This is your portal to view your consumption in realtime</p>
     </span>
   </div>
