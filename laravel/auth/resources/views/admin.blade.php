@@ -92,10 +92,27 @@
   <div class="col-xs-12 col-sm-6 col-md-6">
     <div class="row">
       <span class="text-center">
-        <h3>Top 10 cities with highest consumption</h3>
+        <h3>Top 10 States with highest consumption now</h3>
       </span>
       <hr />
-      <div id="chart_div"></div>
+      <div class="topStates">
+        <table class="table table-hover text-center table table-hover text-center topStatesTable">
+          <thead>
+            <tr class="info text-center">
+              <th>State</th>
+              <th>Consumption in kWh</th>
+            </tr>
+          </thead>
+          <tbody>
+            @foreach ($topStates as $topState => $stateConsmptn)
+              <tr>
+                <td>{{$topState}}</td>
+                <td>{{$stateConsmptn}}</td>
+              </tr>
+            @endforeach
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
 </div>

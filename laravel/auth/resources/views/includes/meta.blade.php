@@ -11,7 +11,7 @@
 <!-- Custom Fonts -->
 <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
-
+<link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
 <!-- Theme CSS -->
 <link rel="stylesheet" href="{{ mix('/css/app.css') }}"/>
 

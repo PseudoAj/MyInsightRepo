@@ -331,3 +331,21 @@ background-image: url("data:image/svg+xml,%3Csvg width='84' height='48' viewBox=
     background: transparent;
     overflow: hidden;
 }
+
+th {
+  text-align: center;
+}
+
+table.table.table-hover.text-center.topStatesTable {
+    font-size: 18px;
+    text-align: center;
+}
+
+.infoBar {
+    background-color: #000;
+    color: #00FF00;
+}
+
+.infoHeading{
+  font-family: 'Ubuntu', sans-serif;
+}

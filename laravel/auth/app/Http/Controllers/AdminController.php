@@ -11,20 +11,20 @@ use Illuminate\Support\Facades\Redis;
 // Class for handling all the events for the admin
 class AdminController extends Controller{
 
-  // Function to show the index page
-  public function show(){
-    // redis test
-    Redis::incr('adminPageViews');
+  // Some variables shared
+  // stats for top elements
+  protected $chartData;
+  //stats for consumption
+  protected $stateStats;
 
-    // Get the page views
-    $adminPageViews = Redis::get('adminPageViews');
-
-    // return view with data
-    return view('admin')->with("adminPageViews",$adminPageViews);
-  }
-
-  // Function to return the chart data for plotting
-  public function getChartData(){
+  // Initilizer
+  public function __construct(){
+    // Define the states array
+    $statesArray = ["AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DC", "DE", "FL", "GA",
+                       "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MD",
+                       "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ",
+                       "NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA", "RI", "SC",
+                       "SD", "TN", "TX", "UT", "VT", "VA", "WA", "WV", "WI", "WY"];
 
     // Define a format for the data
     $chartDataFormat =
@@ -93,51 +93,62 @@ class AdminController extends Controller{
 
     // Array of values
     $stateValues = [];
-    // Assign random values
-    for($i=0;$i<51;$i++){
-      // generate random value
-      $thisVal = rand(200,1000);
 
+    // Assign values
+    foreach ($statesArray as $key => $state) {
+
+      // Get the data from redis
+      $eCnsmptnList = Redis::lrange(strval($state), 0, -1);
+
+      // Calculate the sum for the consumption
+      $eCnsmptn = $this->calcSumOfArr($eCnsmptnList);
+
+      // Put it in the array
       // Add to the array
-      array_push($stateValues,$thisVal);
+      array_push($stateValues,round($eCnsmptn));
+      $this->stateStats[$state] = round($eCnsmptn);
     }
 
     // Assign values for each state
-    $chartData = vsprintf($chartDataFormat,$stateValues);
+    $this->chartData = vsprintf($chartDataFormat,$stateValues);
+  }
 
+  // Function to show the index page
+  public function show(){
+    // redis test
+    Redis::incr('adminPageViews');
 
-    // Send array type
-    // $chartData = [
-    //       ['Country', 'Popularity'],
-    //       ['US-MA', 200],
-    //       ['US-WA', 300],
-    //       ['US-PA', 400],
-    //       ['US-OR', 500],
-    //       ['US-CA', 600],
-    //       ['US-WV', 700]
-    //     ];
+    //make a copy
+    $curStats =$this->stateStats;
 
-    // Google data frame type
-    // $chartData =
-    // '{
-    //   "cols":
-    //       [
-    //         {"id":"","label":"States","pattern":"","type":"string"},
-    //         {"id":"","label":"Consumption","pattern":"","type":"number"}
-    //       ],
-    //
-    //   "rows":
-    //       [
-    //         {"c":[{"v":"US-MA","f":null},{"v":200,"f":null}]},
-    //         {"c":[{"v":"US-WA","f":null},{"v":300,"f":null}]},
-    //         {"c":[{"v":"US-PA","f":null},{"v":400,"f":null}]},
-    //         {"c":[{"v":"US-OR","f":null},{"v":500,"f":null}]},
-    //         {"c":[{"v":"US-CA","f":null},{"v":600,"f":null}]},
-    //         {"c":[{"v":"US-WV","f":null},{"v":700,"f":null}]},
-    //       ]
-    // }';
+    // sort the state stats array
+    arsort($curStats);
+
+    // return the top 10 elements
+    $topStates = array_slice($curStats,0,10);
+
+    // return view with data
+    return view('admin')->with("topStates",$topStates);
+  }
+
+  // Function to return the chart data for plotting
+  public function getChartData(){
 
     // Return value
-    return $chartData;
+    return $this->chartData;
+  }
+
+  // Function to calculate the sum for the given array
+  public function calcSumOfArr($arr){
+    // Variable
+    $sum = 0.0;
+
+    // Iterate over array to return sum
+    foreach ($arr as $key => $value) {
+      $sum += floatval($value);
+    }
+
+    //return the sum
+    return $sum;
   }
 }

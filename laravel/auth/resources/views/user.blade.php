@@ -6,13 +6,21 @@
   <!-- Heading -->
   <div class="container adminHeading">
     <span class="text-center">
-      <h2><a href="{{ url('/user') }}">Welcome {{$user_id}}!!</a><br/>
-        Thanks to the data pipeline; this page loaded in <br/>
-        {{ (microtime(true) - LARAVEL_START) }}s
+      <h2>
+        <a href="{{ url('/user') }}">
+          Welcome, random user with id: {{$user_id}}!!
+        </a>
       </h2>
       <p>This is your portal to view your consumption in realtime</p>
     </span>
   </div>
+</div>
+
+<!-- Some stats -->
+<div class="container-fluid text-center infoBar">
+  <h3 class="infoHeading">
+    pseudoaj@pseudoaj:~$ This page loaded in {{ (microtime(true) - LARAVEL_START) }}s
+  </h3>
 </div>
 
 <!-- Separation -->
@@ -21,7 +29,7 @@
 
 <!-- Dashboard cards -->
 <span class="text-center">
-  <h3>Your consumtion now</h3>
+  <h3>Your utility consumtion information</h3>
 </span>
 <div class="container cardsWrapper">
   <div class="row">
