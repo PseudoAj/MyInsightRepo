@@ -115,8 +115,6 @@ class AdminController extends Controller{
 
   // Function to show the index page
   public function show(){
-    // redis test
-    Redis::incr('adminPageViews');
 
     //make a copy
     $curStats =$this->stateStats;
