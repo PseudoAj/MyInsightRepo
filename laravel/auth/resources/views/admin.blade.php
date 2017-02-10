@@ -23,7 +23,7 @@
       var data = new google.visualization.DataTable(jsonData);
 
       var options = {
-        colorAxis: {colors: ['#FFFFFF','#3097d1','#003366']},
+        colorAxis: {colors: ['#EEE','#3097d1','#003366']},
         backgroundColor: { fill:'transparent' },
         datalessRegionColor: '#A9A9A9',
         defaultColor: '#EEE',
