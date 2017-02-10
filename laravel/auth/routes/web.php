@@ -27,3 +27,6 @@ Route::get('user', 'UserController@show');
 
 // Route for admin page
 Route::get('admin', 'AdminController@show');
+
+// Route for sending data
+Route::get('getChartData','AdminController@getChartData');

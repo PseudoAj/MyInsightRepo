@@ -6,6 +6,7 @@
 
     <!-- Scripts for the end head -->
     @include('includes.headscripts')
+    @yield('headscripts')
   </head>
   <body>
     <!-- Nav Bar-->
