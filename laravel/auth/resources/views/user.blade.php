@@ -34,7 +34,7 @@
 <div class="container cardsWrapper">
   <div class="row">
     <div class="col-xs-12 col-sm-6 col-md-4">
-      <div class="well dashCard">
+      <div class="well dashCard red">
         <div class="dashCardHeading">
           <span class="glyphicon glyphicon-tint visible-xs visible-sm smallIcon"></span><label>Water Consumption</label>
         </div>
@@ -48,7 +48,7 @@
       </div>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-4">
-      <div class="well dashCard">
+      <div class="well dashCard yellow">
         <div class="dashCardHeading">
           <span class="glyphicon glyphicon-flash visible-xs visible-sm smallIcon"></span><label>Electricity Consumption</label>
         </div>
@@ -62,7 +62,7 @@
       </div>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-4">
-      <div class="well dashCard">
+      <div class="well dashCard green">
         <div class="dashCardHeading">
           <span class="glyphicon glyphicon-fire visible-xs visible-sm smallIcon"></span><label>Gas Consumption</label>
         </div>

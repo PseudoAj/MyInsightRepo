@@ -1,9 +1,12 @@
 @extends('layouts.default')
+<!-- Header scripts-->
 
 <!-- Content -->
 @section('content')
     <!-- header -->
     @include('includes.header')
+    <div id="particles-js">
+    </div>
 
     <!-- Quick Links -->
     <div class="container text-center">

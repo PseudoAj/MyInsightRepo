@@ -31,5 +31,6 @@
 
     <!-- Scripts -->
     @include('includes.endscripts')
+    @yield('endscripts')
   </body>
 </html>

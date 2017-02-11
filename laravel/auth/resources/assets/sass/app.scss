@@ -349,3 +349,19 @@ table.table.table-hover.text-center.topStatesTable {
 .infoHeading{
   font-family: 'Ubuntu', sans-serif;
 }
+
+.well.dashCard.green {
+    border-top: $brand-success;
+    border-top-width: 10px;
+    border-top-style: solid;
+}
+.well.dashCard.yellow {
+    border-top: $brand-warning;
+    border-top-width: 10px;
+    border-top-style: solid;
+}
+.well.dashCard.red {
+    border-top: $brand-danger;
+    border-top-width: 10px;
+    border-top-style: solid;
+}
