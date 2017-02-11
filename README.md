@@ -1,5 +1,7 @@
 ![cover](misc/images/cover.png)
 
+[![Build Status](https://travis-ci.org/PseudoAj/MyInsightRepo.svg?branch=master)](https://travis-ci.org/PseudoAj/MyInsightRepo)
+
 ## TL;DR: What is this project?
 
 A robust Internet of Things (IoT) data pipeline.
