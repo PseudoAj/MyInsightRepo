@@ -18,7 +18,7 @@ class UserController extends Controller {
   // Initilizer to get a random key
   public function __construct(){
     // check if user_id is set
-    if(empty($var)){
+    if(empty($user_id)){
       // get a key for instance
       $this->user_id = Redis::randomkey();
     }
@@ -26,6 +26,11 @@ class UserController extends Controller {
 
   // Function to get the data from the redis database
   public function getElecCnsmptnList(){
+    // Check if it's null
+    if(is_null($this->user_id)){
+      // Return a zero element array
+      return [0];
+    }
     // Get the redis list of  the user
     $eCnsmptn = Redis::lrange($this->user_id, 0, -1);
 
