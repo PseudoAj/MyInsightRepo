@@ -25,6 +25,7 @@ class ElectricityTest(unittest.TestCase):
         # check for the right execution
         self.assertTrue(self.thisElec.readAll())
 
+
 # Main funtion
 if __name__ == '__main__':
     # initite and run the unittest

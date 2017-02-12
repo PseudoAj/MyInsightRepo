@@ -25,7 +25,7 @@ from kafka.errors import KafkaError
 class Electricity():
 
     # Initialize
-    def __init__(self,address='default',duration=1):
+    def __init__(self,duration=1,intrvl=5,cnctnAddr='default'):
         # Define the directory to output
         self.regDataDir = "../output/registrations/"
 
@@ -46,6 +46,15 @@ class Electricity():
         # Read the pickle files
         self.readAll()
 
+        # Get the start time for the data generation
+        self.strtTime = self.metaDataDict.get('strtTime')
+
+        # Get the number of users
+        self.numOfRegs = self.metaDataDict.get('numOfRegs')
+
+        # Debug statement
+        # print "Starting time: "+str(self.strtTime)+" Number of registrations: "+str(self.numOfRegs)
+
     # method to read all the files
     def readAll(self):
         # Try writing the file
@@ -53,7 +62,7 @@ class Electricity():
             # Read all the pickle files into dict
             self.regDataDict = self.readFromPickle(self.regDataFilePath)
             self.timeDataDict = self.readFromPickle(self.timeDictFilePath)
-            self.btchStrtTime = self.readFromPickle(self.metaDataFilePath)
+            self.metaDataDict = self.readFromPickle(self.metaDataFilePath)
 
             # Return statement
             return True
@@ -99,4 +108,4 @@ if __name__ == '__main__':
     print 'Argument List:', str(sys.argv)
 
     # Initialize the class
-    thisElcProdcr =  Electricity("172.31.0.231",1)
+    thisElcProdcr =  Electricity()

@@ -279,7 +279,7 @@ class UsersEngine():
         # Save the dictionary
         self.saveToPckl(self.regDataFilePath,self.regDataDict)
         self.saveToPckl(self.timeDictFilePath,self.timeDataDict)
-        self.saveToPckl(self.metaDataFilePath,self.btchStrtTime)
+        self.saveToPckl(self.metaDataFilePath,self.regMetaDataDict)
 
 # The main method to trigger the execution
 if __name__ == '__main__':
