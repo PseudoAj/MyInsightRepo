@@ -3,7 +3,7 @@
 #title           :electricityTest.py
 #description     :Class to test the electricity logic
 #author		     :Ajay Krishna Teja Kavuri
-#date            :01222017
+#date            :02122017
 #version         :0.1
 #==============================================================================
 
@@ -20,15 +20,10 @@ class ElectricityTest(unittest.TestCase):
         self.thisElec =  Electricity()
 
     # Test for the list to csv
-    def testConvrtLstToCSV(self):
-        # Define a list
-        testList = ["a","b","c"]
-
-        # Pass the list
-        testCSV = self.thisElec.convrtLstToCSV(testList)
+    def testReadAll(self):
 
         # check for the right execution
-        self.assertEqual(testCSV, "a,b,c")
+        self.assertTrue(self.thisElec.readAll())
 
 # Main funtion
 if __name__ == '__main__':

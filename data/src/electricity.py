@@ -8,7 +8,6 @@
 #==============================================================================
 
 # Libraries
-
 import datetime
 import random
 import traceback
@@ -16,7 +15,6 @@ import time
 import csv
 from kafka import KafkaProducer
 from kafka.errors import KafkaError
-
 #==============================================================================
 
 # Implementation
