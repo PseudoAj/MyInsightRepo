@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#title           :peg.sh
+#title           :stream_cluster_setup.sh
 #description     :This script will install all the required packages for stream cluster
 #author		       :Ajay Krishna Teja Kavuri
 #date            :01212017
@@ -26,6 +26,12 @@ peg sshcmd-cluster $clustername "sudo apt-get -y install git"
 #==============================================================================
 # Install required stack for the stream cluster
 
+## SSH
+peg install $clustername ssh
+
+## AWS
+peg install $clustername aws
+
 ## Zookeeper
 peg install $clustername zookeeper
 
@@ -40,3 +46,6 @@ peg install $clustername hadoop
 
 ## Flink
 peg install $clustername flink
+
+## redis
+peg sshcmd-node $clustername 1 "sudo apt-get update && sudo apt-get install redis-server -y"
