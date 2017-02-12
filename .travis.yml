@@ -26,5 +26,5 @@ before_script:
 
 # Run the actual test
 script:
-  # trigger unit testing
+  # trigger unit testing for users data
   - python data/users/*Test.py
