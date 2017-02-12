@@ -28,3 +28,4 @@ before_script:
 script:
   # trigger unit testing for users data
   - python data/users/*Test.py
+  - python data/src/*Test.py

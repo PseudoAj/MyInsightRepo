@@ -24,7 +24,7 @@ from kafka.errors import KafkaError
 class Electricity():
 
     # Initialize
-    def __init__(self,intrvl,duration,regFilePath,elecFilePath,cnctnAddr='default'):
+    def __init__(self,intrvl=5,duration=1,regFilePath="",elecFilePath="",cnctnAddr='default'):
 
         # Define the intrvl
         self.intrvl = datetime.timedelta(seconds=int(intrvl))
