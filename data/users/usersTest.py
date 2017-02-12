@@ -14,10 +14,26 @@ from users import UsersEngine
 
 class UsersTest(unittest.TestCase):
 
-    # Simple test case
-    def testPass(self):
-        # assertion statement
-        self.assertTrue(True)
+    # Setup method
+    def setUp(self):
+        # Initiate class
+        self.thisEngne =  UsersEngine(100,1)
+
+    # Test for user data generation
+    def testGenUsr(self):
+        # execute method
+        usrRow = self.thisEngne.genUsr()
+
+        # get the length of the usr row
+        self.assertEqual(len(usrRow), 5)
+
+    # Test for user data generation
+    def testGenCmpny(self):
+        # execute method
+        cmpnyRow = self.thisEngne.genCmpny()
+
+        # get the length of the usr row
+        self.assertEqual(len(cmpnyRow), 5)
 
 # Main funtion
 if __name__ == '__main__':
