@@ -190,10 +190,11 @@ class Electricity():
             # Get the time for loop end
             loopEndTime = datetime.datetime.now() - loopStrtTime
             loopEndTime = loopEndTime.total_seconds()
-            remngTime = float(1-loopEndTime)
+            remngTime = float(self.intrvl-loopEndTime)
 
             # Sleep for that amount of time
-            time.sleep(remngTime)
+            if remngTime>0:
+                time.sleep(remngTime)
 
             # Debug statement
             # print remngTime
