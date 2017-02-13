@@ -133,7 +133,6 @@ class Electricity():
             # Get the loop start time
             loopStrtTime = datetime.datetime.now()
 
-
             # Convert the current time into a unix time stamp
             curStrTime = curTime.strftime("%s")
 
@@ -147,6 +146,9 @@ class Electricity():
                 # write a value for this data
                 # get the service_id
                 curSrvceList = self.timeDataDict.get(int(curStrTime))
+
+                # Debug statement
+                print len(curSrvceList)
 
                 # for all the service id write the record
                 for curSrvceId in curSrvceList:
@@ -164,7 +166,7 @@ class Electricity():
                     self.produceStream(curSrvceId, curRcrdRowStr)
 
                     # # Debug statement
-                    print curRcrdRowStr
+                    # print curRcrdRowStr
 
                     # # Debug statement
                     # print "Writing: "+str(curSrvceId)+" at time: "+str(curStrTime)
@@ -194,7 +196,7 @@ class Electricity():
             time.sleep(remngTime)
 
             # Debug statement
-            print remngTime
+            # print remngTime
             # print "Current time: "+str(curStrTime)+" ,next timestamp: "+str(newTimeStmp)+" dict: "+str(self.timeDataDict)
             # raw_input()
 
