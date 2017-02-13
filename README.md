@@ -2,9 +2,9 @@
 
 [![Build Status](https://travis-ci.org/PseudoAj/MyInsightRepo.svg?branch=master)](https://travis-ci.org/PseudoAj/MyInsightRepo)
 
-## TL;DR: What is this project?
+## About
 
-A robust Internet of Things (IoT) data pipeline.
+
 
 ## Motivation
 
@@ -71,7 +71,7 @@ Inspired by [apache post on monitoring](https://flink.apache.org/news/2016/04/06
 
 </pre>
 
-## References and resources
+## References
 
 * [IntelliJ: How to build jars](http://stackoverflow.com/questions/1082580/how-to-build-jars-from-intellij-properly)
 * [Flink Event Time](https://ci.apache.org/projects/flink/flink-docs-release-1.2/dev/event_time.html)
@@ -83,3 +83,5 @@ Inspired by [apache post on monitoring](https://flink.apache.org/news/2016/04/06
 * [Census NY](http://www.census.gov/quickfacts/table/HSG010215/36)
 * [Laravel Apache Conf](http://stackoverflow.com/questions/28242495/laravel-the-requested-url-was-not-found-on-this-server)
 * [Laravel Apache Conf 2](https://www.howtoforge.com/tutorial/install-laravel-on-ubuntu-for-apache/)
+* [Average water usage in USA](https://www3.epa.gov/watersense/pubs/indoor.html
+)

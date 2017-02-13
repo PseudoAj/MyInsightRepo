@@ -17,9 +17,9 @@
 </div>
 
 <!-- Some stats -->
-<div class="container-fluid text-center infoBar">
-  <h3 class="infoHeading">
-    pseudoaj@pseudoaj:~$ This page loaded in {{ (microtime(true) - LARAVEL_START) }}s
+<div class="container-fluid text-center bg-info">
+  <h3>
+    Thanks to data pipeline, this page loaded in <b>{{ (microtime(true) - LARAVEL_START) }}s</b>
   </h3>
 </div>
 
@@ -34,7 +34,7 @@
 <div class="container cardsWrapper">
   <div class="row">
     <div class="col-xs-12 col-sm-6 col-md-4">
-      <div class="well dashCard red">
+      <div class="well dashCard green">
         <div class="dashCardHeading">
           <span class="glyphicon glyphicon-tint visible-xs visible-sm smallIcon"></span><label>Water Consumption</label>
         </div>
@@ -42,13 +42,13 @@
           <i class="glyphicon glyphicon-tint"></i>
         </div>
         <div class="desc">
-          <var>1</var>
+          <var>1 gallons</var>
           <label class="text-muted">Water Consumption</label>
         </div>
       </div>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-4">
-      <div class="well dashCard yellow">
+      <div class="well dashCard green">
         <div class="dashCardHeading">
           <span class="glyphicon glyphicon-flash visible-xs visible-sm smallIcon"></span><label>Electricity Consumption</label>
         </div>
@@ -70,7 +70,7 @@
           <i class="glyphicon glyphicon-fire"></i>
         </div>
         <div class="desc">
-          <var>1</var>
+          <var>1 ccf</var>
           <label class="text-muted">Gas Consumption</label>
         </div>
       </div>
