@@ -1,12 +1,16 @@
 ![cover](misc/images/cover.png)
 
-## Status
+<center>
 
 [![Build Status](https://travis-ci.org/PseudoAj/MyInsightRepo.svg?branch=master)](https://travis-ci.org/PseudoAj/MyInsightRepo)
 
+</center>
+
 ## About
 
-With the advent of Internet of Things(IoT), traditional systems are being replaced with smart systems that can speak with cloud in real-time but there is a engineering problem: How can I ingest this information and extract insights at **scale?**
+With the advent of Internet of Things (IoT), traditional systems are being replaced with smart systems that can speak with cloud in real-time but there is a engineering problem: How can I **ingest** this information with high **velocity** from **variety** of sensors and extract **accurate** insights at **scale** with **fault tolerance**? This project attempts to solve this problem.
+
+AUTH: Analytics of Utility Things is a platform for ingesting, processing and extracting insights from next billion connected Internet of Things (IoT).  
 
 ## Pipeline Layout
 
