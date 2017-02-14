@@ -33,13 +33,13 @@ tmux send-keys -t $SESSION:$ElecID 'python electricity.py '"$strmDur"' '"$intrvl
 echo "Electricity stream started."
 
 # # Create a new window for water data
-# WtrID=2
-# tmux new-window -t $WtrID
-# tmux send-keys -t $SESSION:$WtrID 'python water.py '"$strmDur"' '"$intrvl"'' C-m
-# echo "Water stream started."
-#
+WtrID=2
+tmux new-window -t $WtrID
+tmux send-keys -t $SESSION:$WtrID 'python water.py '"$strmDur"' '"$intrvl"' '"$addr"'' C-m
+echo "Water stream started."
+
 # # Create a new window for gas data
-# GsID=3
-# tmux new-window -t $GsID
-# tmux send-keys -t $SESSION:$GsID 'python gas.py '"$strmDur"' '"$intrvl"'' C-m
-# echo "Water stream started."
+GsID=3
+tmux new-window -t $GsID
+tmux send-keys -t $SESSION:$GsID 'python gas.py '"$strmDur"' '"$intrvl"' '"$addr"'' C-m
+echo "Water stream started."

@@ -1,14 +1,12 @@
 ![cover](misc/images/cover.png)
 
+## Status
+
 [![Build Status](https://travis-ci.org/PseudoAj/MyInsightRepo.svg?branch=master)](https://travis-ci.org/PseudoAj/MyInsightRepo)
 
 ## About
 
-
-
-## Motivation
-
-The current utility systems are outdated and this is engineered data pipeline to accommodate the next generation of devices.
+With the advent of Internet of Things(IoT), traditional systems are being replaced with smart systems that can speak with cloud in real-time but there is a engineering problem: How can I ingest this information and extract insights at **scale?**
 
 ## Pipeline Layout
 
@@ -85,3 +83,4 @@ Inspired by [apache post on monitoring](https://flink.apache.org/news/2016/04/06
 * [Laravel Apache Conf 2](https://www.howtoforge.com/tutorial/install-laravel-on-ubuntu-for-apache/)
 * [Average water usage in USA](https://www3.epa.gov/watersense/pubs/indoor.html
 )
+* [Average gas consumption in USA](http://www.city-data.com/forum/long-island/1809660-what-normal-natural-gas-usage-price.html)

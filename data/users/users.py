@@ -29,7 +29,7 @@ class UsersEngine():
         self.numOfRegs = numOfRegs
 
         # Define the duration in seconds for data generation
-        self.duration = datetime.timedelta(days=duration)
+        self.duration = datetime.timedelta(seconds=duration)
 
         # Assign a percentile of business
         self.bizPrcnt = 6

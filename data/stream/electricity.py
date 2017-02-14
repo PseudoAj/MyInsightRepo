@@ -87,6 +87,9 @@ class Electricity():
             self.timeDataDict = self.readFromPickle(self.timeDictFilePath)
             self.metaDataDict = self.readFromPickle(self.metaDataFilePath)
 
+            # Debug statement
+            print "Electricity: Completed reading files."
+
             # Return statement
             return True
 
@@ -233,6 +236,10 @@ class Electricity():
         # send the data
         self.producer.send(self.topic, key=str(curKey), value=curData)
 
+        # Debug statement
+        # print "Produced Key: "+str(curKey)+", value: "+str(curData)
+
+
     # function to convert given list of strings and integers to a csv line
     def convrtLstToCSV(self, lst):
 
@@ -245,11 +252,6 @@ class Electricity():
 
 # Main method
 if __name__ == '__main__':
-
-    # Read the arguments
-
-    # Debug statement
-    print 'Argument List:', str(sys.argv)
 
     # Get the arguments
     ## duration
