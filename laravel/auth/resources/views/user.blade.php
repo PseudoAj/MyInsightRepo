@@ -42,7 +42,7 @@
           <i class="glyphicon glyphicon-tint"></i>
         </div>
         <div class="desc">
-          <var>1 gallons</var>
+          <var>{{$water}} gallons</var>
           <label class="text-muted">Water Consumption</label>
         </div>
       </div>
@@ -56,7 +56,7 @@
           <i class="glyphicon glyphicon-flash"></i>
         </div>
         <div class="desc">
-          <var>{{$eCnsmptnSum}} kWh</var>
+          <var>{{$electricity}} kWh</var>
           <label class="text-muted">Electricity Consumption</label>
         </div>
       </div>
@@ -70,7 +70,7 @@
           <i class="glyphicon glyphicon-fire"></i>
         </div>
         <div class="desc">
-          <var>1 ccf</var>
+          <var>{{$gas}} ccf</var>
           <label class="text-muted">Gas Consumption</label>
         </div>
       </div>

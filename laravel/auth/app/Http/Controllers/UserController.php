@@ -21,18 +21,24 @@ class UserController extends Controller {
     if(empty($user_id)){
       // get a key for instance
       $this->user_id = Redis::randomkey();
+      // tokenize the key
+      $this->user_array = explode(":",$tstStr,2);
+      // get the user_id from user_array
+      $this->user_id=$this->user_array[0];
     }
   }
 
   // Function to get the data from the redis database
-  public function getElecCnsmptnList(){
+  public function getCnsmptnList($utility="electricity"){
     // Check if it's null
     if(is_null($this->user_id)){
       // Return a zero element array
       return [0];
     }
+    // Assign the key
+    $thisKey = strval($this->user_id) . ":" . strval($utility);
     // Get the redis list of  the user
-    $eCnsmptn = Redis::lrange($this->user_id, 0, -1);
+    $eCnsmptn = Redis::lrange($thisKey, 0, -1);
 
     // Return the list of values
     return $eCnsmptn;
@@ -54,15 +60,20 @@ class UserController extends Controller {
 
   // Function to return the index view
   public function show(){
-    // Get the array of consumption
-    $eCnsmptn = $this->getElecCnsmptnList();
+    // Array of topics
+    $topics = array("electricity"=>0.0,"water"=>0.0,"gas"=>0.0);
 
-    // Get the sum for consumption
-    $eCnsmptnSum = $this->calcSumOfArr($eCnsmptn);
-    // Formatting
-    $eCnsmptnSum=round($eCnsmptnSum,2);
+    // Loop through topics
+    foreach ($topics as $key => $topic) {
+      $cnsmptnLst = $this->getCnsmptnList(strval($key));
+      $cnsmptnSum =  $this->calcSumOfArr($cnsmptnLst);
+      $topics[$key]=round($cnsmptnSum,2);
+    }
 
     // Return the view
-    return view('user')->with("user_id",$this->user_id)->with("eCnsmptnSum",$eCnsmptnSum);
+    return view('user')->with("user_id",$this->user_id)
+                       ->with("electricity",$topics["electricity"])
+                       ->with("water",$topics["water"])
+                       ->with("gas",$topics["gas"]);
   }
 }
