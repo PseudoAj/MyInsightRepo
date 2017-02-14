@@ -97,8 +97,11 @@ class AdminController extends Controller{
     // Assign values
     foreach ($statesArray as $key => $state) {
 
+      // Concat the key
+      $curKey = strval($state . ":electricity")
+
       // Get the data from redis
-      $eCnsmptnList = Redis::lrange(strval($state), 0, -1);
+      $eCnsmptnList = Redis::lrange($curKey, 0, -1);
 
       // Calculate the sum for the consumption
       $eCnsmptn = $this->calcSumOfArr($eCnsmptnList);
