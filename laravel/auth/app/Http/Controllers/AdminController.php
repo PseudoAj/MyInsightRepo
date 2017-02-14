@@ -98,7 +98,7 @@ class AdminController extends Controller{
     foreach ($statesArray as $key => $state) {
 
       // Concat the key
-      $curKey = strval($state . ":electricity")
+      $curKey = strval($state . ":electricity");
 
       // Get the data from redis
       $eCnsmptnList = Redis::lrange($curKey, 0, -1);
