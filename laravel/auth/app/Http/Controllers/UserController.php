@@ -22,7 +22,7 @@ class UserController extends Controller {
       // get a key for instance
       $this->user_id = Redis::randomkey();
       // tokenize the key
-      $this->user_array = explode(":",$tstStr,2);
+      $this->user_array = explode(":",$this->user_id,2);
       // get the user_id from user_array
       $this->user_id=$this->user_array[0];
     }
