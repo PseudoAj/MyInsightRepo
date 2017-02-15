@@ -11,6 +11,8 @@ AUTH: Analytics of Utility Things is a platform for ingesting, processing and ex
 
 ## Pipeline Layout
 
+![pipeline](misc/images/pipeline.jpg)
+
 ## Technical Stack
 
 Following technologies, libraries and languages have been used for building this project:
