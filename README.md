@@ -2,36 +2,34 @@
 
 [![Build Status](https://travis-ci.org/PseudoAj/MyInsightRepo.svg?branch=master)](https://travis-ci.org/PseudoAj/MyInsightRepo)
 
-
 ## About
+
+:simple_smile:
 
 With the advent of Internet of Things (IoT), traditional systems are being replaced with smart systems that can speak with cloud in real-time but there is a engineering problem: How can I **ingest** this information with high **velocity** from **variety** of sensors and extract **accurate** insights at **scale** with **fault tolerance**? This project attempts to solve this problem.
 
-AUTH: Analytics of Utility Things is a platform for ingesting, processing and extracting insights from next billion connected Internet of Things (IoT).  
+AUTH: Analytics of Utility Things is a platform for ingesting, processing and extracting insights from next billion connected Internet of Things (IoT).
 
-## Pipeline Layout
+## Data Pipeline
 
 ![pipeline](misc/images/pipeline.jpg)
 
 ## Technical Stack
 
-Following technologies, libraries and languages have been used for building this project:
-
-* [pegasus](https://github.com/InsightDataScience/pegasus)
-* Amazon AWS
-* Amazon S3
-* python
-  * [Faker](https://faker.readthedocs.io/en/latest/index.html)
-  * [radar](https://pypi.python.org/pypi/radar)
-  * [uuid](http://stackoverflow.com/a/1210469/4085019)(Default)
-  * Datetime (Default)
-  * traceback (Default)
-  * csv (Default)
-  * sys (Default)
-  * subprocess (Default)
-
+| **# **| **Technology**   | **Language** | **Purpose**              |
+|---|--------------|----------|----------------------|
+| 1 | Apache Kafka | Python   | Ingestion            |
+| 2 | Apache Flink | Java     | Stream Processing    |
+| 3 | Redis        | Java/PHP | Key/Value Cache      |
+| 4 | Amazon S3    | N/A      | Distributed Storage  |
+| 5 | Apache Spark | Python   | Batch Processing     |
+| 6 | MySQL        | SQL      | Application Database |
+| 7 | Laravel      | PHP      | Web Framework        |
+| 8 | Amazon AWS   | BASH     | Devops               |
 
 ## 1. Simulating Data
+
+The idea is to create as realistic dataset as possible; hence the dataset is inspired from real world frameworks and smart meters.
 
 ## 2. Data Ingestion
 
@@ -40,12 +38,6 @@ Following technologies, libraries and languages have been used for building this
 ## 4. Stream Processing
 
 ## 5. Web Application
-
-### Idea
-
-The idea is to create as realistic dataset as possible; hence the dataset is inspired from multiple sources including:
-
-1. [Utility API](https://utilityapi.com/docs#data-formats)
 
 ### Considerations
 
@@ -60,7 +52,7 @@ The idea is to create as realistic dataset as possible; hence the dataset is ins
 ## Processing
 
 ### 1. Stream processing
-Inspired by [apache post on monitoring](https://flink.apache.org/news/2016/04/06/cep-monitoring.html); Apache Flink is selected as a way to process the incoming stream.
+Inspired by ; Apache Flink is selected as a way to process the incoming stream.
 
 ### 2. Batch processing
 
@@ -87,3 +79,5 @@ Inspired by [apache post on monitoring](https://flink.apache.org/news/2016/04/06
 * [Average water usage in USA](https://www3.epa.gov/watersense/pubs/indoor.html
 )
 * [Average gas consumption in USA](http://www.city-data.com/forum/long-island/1809660-what-normal-natural-gas-usage-price.html)
+* [Utility API](https://utilityapi.com/docs#data-formats)
+* [apache post on monitoring](https://flink.apache.org/news/2016/04/06/cep-monitoring.html)
