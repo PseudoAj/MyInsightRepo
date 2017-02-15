@@ -57,14 +57,14 @@ class S3():
         return exists
 
     # Method to upload a given file
-    def upload(self,topic="dump",fileDir="",fileName=""):
+    def upload(self,topic="dump",fileDir="",fileName="",s3FileName=""):
         # Check if the bucket exists
         if not self.checkBucket():
             # Return statement
             return False
 
         # Put the object in the s3 and return response
-        return self.botoS3.Object(str(self.bcktNme),str(topic+"/"+fileName)).put(Body=open(str(fileDir+fileName),'rb'))
+        return self.botoS3.Object(str(self.bcktNme),str(topic+"/"+s3FileName)).put(Body=open(str(fileDir+fileName),'rb'))
 
 # Main method
 if __name__=="__main__":

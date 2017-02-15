@@ -1,9 +1,11 @@
 ![cover](misc/images/cover.png)
 
+> AUTH: Analytics of Utility Things is a platform for ingesting, processing and extracting insights from next billion connected Internet of Things (IoT).
+
+<hr/>
+
 | [![Build Status](https://travis-ci.org/PseudoAj/MyInsightRepo.svg?branch=master)](https://travis-ci.org/PseudoAj/MyInsightRepo) | Presentation: [slides](http://authslides.pseudoaj.com)  | Demo: [auth.pseudoaj.com](http://auth.pseudoaj.com) | Contact: [linkedin](https://www.linkedin.com/in/pseudoaj) |
 |----------|----------------|--------|-----------|
-
-> AUTH: Analytics of Utility Things is a platform for ingesting, processing and extracting insights from next billion connected Internet of Things (IoT).
 
 ## About
 
@@ -34,6 +36,17 @@ With the advent of Internet of Things (IoT), traditional systems are being repla
 | 7 | `Laravel`      | PHP      | Web Framework        |
 | 8 | `Amazon AWS`   | BASH     | Devops               |
 
+## Directory Structure
+
++ data
+  + batch
+  + examples
+  + output
+  + S3
+    + tmp
+  + src
+  + stream
++ flink
 
 ## 1. Simulating Data
 
