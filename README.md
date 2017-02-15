@@ -1,9 +1,9 @@
 ![cover](misc/images/cover.png)
 
-AUTH: Analytics of Utility Things is a platform for ingesting, processing and extracting insights from next billion connected Internet of Things (IoT).
-
-| Status: [![Build Status](https://travis-ci.org/PseudoAj/MyInsightRepo.svg?branch=master)](https://travis-ci.org/PseudoAj/MyInsightRepo) | Presentation: [slides](http://authslides.pseudoaj.com)  | Demo: [auth.pseudoaj.com](http://auth.pseudoaj.com) | Contact: [linkedin](https://www.linkedin.com/in/pseudoaj) |
+| [![Build Status](https://travis-ci.org/PseudoAj/MyInsightRepo.svg?branch=master)](https://travis-ci.org/PseudoAj/MyInsightRepo) | Presentation: [slides](http://authslides.pseudoaj.com)  | Demo: [auth.pseudoaj.com](http://auth.pseudoaj.com) | Contact: [linkedin](https://www.linkedin.com/in/pseudoaj) |
 |----------|----------------|--------|-----------|
+
+> AUTH: Analytics of Utility Things is a platform for ingesting, processing and extracting insights from next billion connected Internet of Things (IoT).
 
 ## About
 
@@ -34,9 +34,10 @@ With the advent of Internet of Things (IoT), traditional systems are being repla
 | 7 | `Laravel`      | PHP      | Web Framework        |
 | 8 | `Amazon AWS`   | BASH     | Devops               |
 
+
 ## 1. Simulating Data
 
-The idea is to create as realistic dataset as possible; hence the dataset is inspired from real world frameworks and smart meters.
+The idea is to create as realistic dataset as possible; hence the dataset is inspired from real world frameworks and smart meters. Data consists of `8 Miliion` users including residential and business utility installations, this data is saved as `dictionaries` using `pickle` files along with meta data. Each user is assigned with a random starting time for sending information and data is generated every
 
 ## 2. Data Ingestion
 
