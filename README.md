@@ -2,10 +2,10 @@
 
 > AUTH: Analytics of Utility Things is a platform for ingesting, processing and extracting insights from next billion connected Internet of Things (IoT).
 
-<hr/>
-
 | [![Build Status](https://travis-ci.org/PseudoAj/MyInsightRepo.svg?branch=master)](https://travis-ci.org/PseudoAj/MyInsightRepo) | Presentation: [slides](http://authslides.pseudoaj.com)  | Demo: [auth.pseudoaj.com](http://auth.pseudoaj.com) | Contact: [linkedin](https://www.linkedin.com/in/pseudoaj) |
 |----------|----------------|--------|-----------|
+
+<hr/>
 
 ## About
 
@@ -38,15 +38,19 @@ With the advent of Internet of Things (IoT), traditional systems are being repla
 
 ## Directory Structure
 
-+ data
-  + batch
-  + examples
-  + output
-  + S3
-    + tmp
-  + src
-  + stream
-+ flink
+```
++ data       : Directory contains all the scripts that are used to generate data for the project.
+  + batch    : Scripts are used to pull data from S3 into spark for processing
+  + examples : Contains some scripts that I wrote to understand basics
+  + output   : Directory is sink for all the data that is generated for testing purposes and also stores some temporary pickle files
+  + S3       : Scripts that help generate batch data and upload to Amazon S3
+  + src      :
+  + stream   :
++ flink      :
++ laravel    :
++ misc       :
++ setup      :
+```
 
 ## 1. Simulating Data
 
