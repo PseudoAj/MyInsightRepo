@@ -16,8 +16,11 @@ class S3Test(unittest.TestCase):
 
     # Setup method
     def setUp(self):
+        # define a bucket name
+        bcktNme = "de-ny-ajay"
+
         # Initiate class
-        self.thisS3 = S3()
+        self.thisS3 = S3(bcktNme)
 
     # Test for the list to csv
     def testCheckBucket(self):

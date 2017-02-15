@@ -18,10 +18,10 @@ import botocore
 class S3():
 
     # Initialize
-    def __init__(self):
+    def __init__(self,bcktNme=""):
 
         # Define the bucket name
-        self.bcktNme = "de-ny-ajay"
+        self.bcktNme = bcktNme
 
         # Get the boto s3 instance
         self.botoS3 = boto3.resource('s3')
@@ -56,10 +56,21 @@ class S3():
         # Return statement
         return exists
 
+    # Method to upload a given file
+    def upload(self,topic="dump",fileDir="",fileName=""):
+        # Check if the bucket exists
+        if not self.checkBucket():
+            # Return statement
+            return False
+
+        # Put the object in the s3 and return response
+        return self.botoS3.Object(str(self.bcktNme),str(topic+"/"+fileName)).put(Body=open(str(fileDir+fileName),'rb'))
+
 # Main method
 if __name__=="__main__":
 
     # Get the arguments
+    bcktNme = "de-ny-ajay"
 
     # Initialize the class
-    thisS3 = S3()
+    thisS3 = S3(bcktNme)
