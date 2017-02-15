@@ -8,11 +8,26 @@
 #==============================================================================
 
 # Libraries
-import datetime
-import random
-import traceback
-import time
-import csv
-from kafka import KafkaProducer
-from kafka.errors import KafkaError
+import unittest
+from uploadToS3 import S3
 #==============================================================================
+
+class S3Test(unittest.TestCase):
+
+    # Setup method
+    def setUp(self):
+        # Initiate class
+        self.thisS3 = S3()
+
+    # Test for the list to csv
+    def testCheckBucket(self):
+
+        # check for the null string
+        self.assertTrue(self.thisS3.checkBucket())
+
+
+
+# Main funtion
+if __name__ == '__main__':
+    # initite and run the unittest
+    unittest.main()

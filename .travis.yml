@@ -29,3 +29,4 @@ script:
   # trigger unit testing for users data
   - python data/users/*Test.py
   - python data/src/*Test.py
+  - python data/S3/*Test.py

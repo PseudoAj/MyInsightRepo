@@ -1,3 +1,4 @@
 Faker
 radar
 kafka-python
+boto3
