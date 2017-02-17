@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+s#!/usr/bin/env python
 
 #title           :electricity.py
 #description     :The script is for generating fake electricity meters data
@@ -18,7 +18,6 @@ import time
 import sys
 import pickle
 import subprocess
-
 #==============================================================================
 
 # Implementation
