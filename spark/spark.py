@@ -83,7 +83,7 @@ if __name__ == '__main__':
 
     # Get the arguments that you need
     bucketName = str(sys.argv[1])
-    filePath = str
+    filePath = str(sys.argv[1])
 
     # Initialize the class
     thisSparkJob = Spark()
@@ -92,8 +92,6 @@ if __name__ == '__main__':
     sc = thisSparkJob.getContext()
 
     # Set s3 parameters
-    bucketName = "de-ny-ajay"
-    filePath = "misc/electricity.dat"
     thisSparkJob.setS3Attrs(bucketName,filePath)
 
     # get the data cache
