@@ -44,19 +44,46 @@ class Spark():
 
         return cacheData
 
+    # Method has sets the bucket name and file path
+    def setS3Attrs(self,bucketName,filePath):
+        # Set the attributes
+        self.bucketName = bucketName
+        self.filePath = filePath
+
+    # Fetch data from s3 instead of manual text files
+    def getDataS3(self):
+
+        try:
+            # build the query from S3
+            s3Uri = "s3n://"+str(self.bucketName)+"/"+str(self.filePath)
+            # Get the file from S3
+            s3Data = self.sparkCntxt.textFile(s3Uri)
+
+            return s3Data
+
+        # Exception
+        except Exception:
+            traceback.print_exc()
+            return False
+
     # Method that will implement the actual jobs
     def runJobWithCache(self,cacheData):
         # Simple filter for testing
         numOfAs = cacheData.filter(lambda s: 'a' in s).count()
 
         # Debug statements
-        print numOfAs
+        print "Number of A's:" + str(numOfAs)
 
+    # Job for counting consumption
+    def runJob(self,data):
+        print data.count()
 
 # main method
 if __name__ == '__main__':
 
     # Get the arguments that you need
+    bucketName = str(sys.argv[1])
+    filePath = str
 
     # Initialize the class
     thisSparkJob = Spark()
@@ -64,11 +91,16 @@ if __name__ == '__main__':
     # get the context
     sc = thisSparkJob.getContext()
 
+    # Set s3 parameters
+    bucketName = "de-ny-ajay"
+    filePath = "misc/electricity.dat"
+    thisSparkJob.setS3Attrs(bucketName,filePath)
+
     # get the data cache
-    cache = thisSparkJob.getDataCache()
+    data = thisSparkJob.getDataS3()
 
     # run the job
-    thisSparkJob.runJobWithCache(cache)
+    thisSparkJob.runJob(data)
 
     # stop the job
     sc.stop()
