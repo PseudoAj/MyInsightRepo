@@ -85,7 +85,7 @@ if __name__ == '__main__':
 
     # Get the arguments that you need
     bucketName = str(sys.argv[1])
-    filePath = str(sys.argv[1])
+    filePath = str(sys.argv[2])
 
     # Initialize the class
     thisSparkJob = Spark()
