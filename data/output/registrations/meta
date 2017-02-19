@@ -4,11 +4,11 @@ p1
 cdatetime
 datetime
 p2
-(S'\x07\xe1\x02\x0f\x0f9*\x0b \x8a'
+(S'\x07\xe1\x02\x13\x00\x1d\x1d\x0f!\x05'
 p3
 tp4
 Rp5
 sS'numOfRegs'
 p6
-I500
+I5000
 s.
