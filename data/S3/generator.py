@@ -191,12 +191,8 @@ class Generator():
                     # pass on the dict to wite the csv file
                     curRcrdRow = self.genRow(curRcrdDict,int(curStrTime),int(newTimeStmp))
 
-                    # send the data in producers
-                    # Append them as a csv row
-                    curRcrdRowStr = self.convrtLstToCSV(curRcrdRow)
-
                     # send them through the producer
-                    self.writeFile(self.tmpDataFilePath,curRcrdRowStr)
+                    self.writeFile(self.tmpDataFilePath,curRcrdRow)
 
                     # # Debug statement
                     # print curRcrdRowStr
@@ -260,16 +256,6 @@ class Generator():
         # return the list
         return curRcrd
 
-    # function to convert given list of strings and integers to a csv line
-    def convrtLstToCSV(self, lst):
-
-        # covert each part as string
-        for idx,rcrd in enumerate(lst):
-            lst[idx] = str(rcrd)
-
-        # return with join
-        return ",".join(lst)
-
     # Method to write the data to a certain file
     def writeFile(self, filePath, data):
         # Try writing the file
@@ -278,7 +264,7 @@ class Generator():
             with open(filePath,'a+') as curFile:
                 # write down the data passed on to it
                 curFileWrtr = csv.writer(curFile)
-                curFileWrtr.writerow([data])
+                curFileWrtr.writerow(data)
 
             # also write it on the producer
             # self.produceStream(data)
