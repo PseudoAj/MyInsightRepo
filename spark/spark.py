@@ -10,6 +10,7 @@
 # Libraries
 from pyspark import SparkContext
 import sys
+from operator import add
 import traceback
 #==============================================================================
 
@@ -88,8 +89,8 @@ class Spark():
 
         try:
             # Run the job, key by user_id and add the consumption
-            cnsmptnByUser = data.flatMap(lambda x:x.split('\n'))
-                                .map(lambda x:(str(x.split(',')[0]),float(x.split(',')[5])))
+            cnsmptnByUser = data.flatMap(lambda x:x.split('\n'))\
+                                .map(lambda x:(str(x.split(',')[0]),float(x.split(',')[5])))\
                                 .reduceByKey(add)
 
             # Collect the results
