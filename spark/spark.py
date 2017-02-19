@@ -70,15 +70,37 @@ class Spark():
 
     # Method that will implement the actual jobs
     def runJobWithCache(self,cacheData):
-        # Simple filter for testing
-        numOfAs = cacheData.filter(lambda s: 'a' in s).count()
 
-        # Debug statements
-        print "Number of A's:" + str(numOfAs)
+        try:
+            # Simple filter for testing
+            numOfAs = cacheData.filter(lambda s: 'a' in s).count()
+
+            # Debug statements
+            print "Number of A's:" + str(numOfAs)
+
+        # Exception
+        except Exception:
+            traceback.print_exc()
+            return False
 
     # Job for counting consumption
     def runJob(self,data):
-        print data.count()
+
+        try:
+            # Run the job, key by user_id and add the consumption
+            cnsmptnByUser = data.flatMap(lambda x:x.split('\n'))
+                                .map(lambda x:(str(x.split(',')[0]),float(x.split(',')[5])))
+                                .reduceByKey(add)
+
+            # Collect the results
+            output = cnsmptnByUser.collect()
+
+            return output
+
+        # Exception
+        except Exception:
+            traceback.print_exc()
+            return False
 
 # main method
 if __name__ == '__main__':
@@ -100,7 +122,9 @@ if __name__ == '__main__':
     data = thisSparkJob.getDataS3()
 
     # run the job
-    thisSparkJob.runJob(data)
+    output = thisSparkJob.runJob(data)
+    for key,value in output:
+        print "User: "+str(key)+"has consumption of: "+str(value)
 
     # stop the job
     sc.stop()
