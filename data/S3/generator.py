@@ -200,6 +200,7 @@ class Generator():
 
                     # # Debug statement
                     # print curRcrdRowStr
+                    # raw_input()
 
                     # # Debug statement
                     #print "Writing: "+str(curSrvceId)+" at time: "+str(curStrTime)
@@ -277,7 +278,7 @@ class Generator():
             with open(filePath,'a+') as curFile:
                 # write down the data passed on to it
                 curFileWrtr = csv.writer(curFile)
-                curFileWrtr.writerow(data)
+                curFileWrtr.writerow([data])
 
             # also write it on the producer
             # self.produceStream(data)
