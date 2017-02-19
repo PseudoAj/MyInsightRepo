@@ -152,11 +152,11 @@ class Generator():
         # Get instance for next day
         nextDay = self.strtTime + datetime.timedelta(days=1)
 
-        # Convert the current time into a unix time stamp
-        curStrTime = curTime.strftime("%s")
-
         # Run through for the time
         while curTime < self.endTime:
+
+            # Convert the current time into a unix time stamp
+            curStrTime = curTime.strftime("%s")
 
             # check if the curTime exceeded one day
             if curTime >= nextDay:
@@ -171,7 +171,6 @@ class Generator():
 
                 # update
                 nextDay += datetime.timedelta(days=1)
-
 
             # New time stamp
             newTime = curTime + self.intrvl
