@@ -1,4 +1,4 @@
-s#!/usr/bin/env python
+#!/usr/bin/env python
 
 #title           :electricity.py
 #description     :The script is for generating fake electricity meters data
