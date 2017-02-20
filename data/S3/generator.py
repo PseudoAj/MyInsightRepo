@@ -18,7 +18,6 @@ import time
 import sys
 import pickle
 import subprocess
-
 #==============================================================================
 
 # Implementation
@@ -156,10 +155,13 @@ class Generator():
         # Run through for the time
         while curTime < self.endTime:
 
+            # Convert the current time into a unix time stamp
+            curStrTime = curTime.strftime("%s")
+
             # check if the curTime exceeded one day
             if curTime >= nextDay:
                 # upload to s3
-                self.thisS3.upload(self.topic,self.tmpDir,self.tmpFileName,str(curTime)+".dat")
+                self.thisS3.upload(self.topic,self.tmpDir,self.tmpFileName,str(curStrTime)+".dat")
 
                 # Clean the temp files after upload
                 self.cleanTempFiles()
@@ -169,9 +171,6 @@ class Generator():
 
                 # update
                 nextDay += datetime.timedelta(days=1)
-
-            # Convert the current time into a unix time stamp
-            curStrTime = curTime.strftime("%s")
 
             # New time stamp
             newTime = curTime + self.intrvl
@@ -192,15 +191,12 @@ class Generator():
                     # pass on the dict to wite the csv file
                     curRcrdRow = self.genRow(curRcrdDict,int(curStrTime),int(newTimeStmp))
 
-                    # send the data in producers
-                    # Append them as a csv row
-                    curRcrdRowStr = self.convrtLstToCSV(curRcrdRow)
-
                     # send them through the producer
-                    self.writeFile(self.tmpDataFilePath,curRcrdRowStr)
+                    self.writeFile(self.tmpDataFilePath,curRcrdRow)
 
                     # # Debug statement
                     # print curRcrdRowStr
+                    # raw_input()
 
                     # # Debug statement
                     #print "Writing: "+str(curSrvceId)+" at time: "+str(curStrTime)
@@ -259,16 +255,6 @@ class Generator():
 
         # return the list
         return curRcrd
-
-    # function to convert given list of strings and integers to a csv line
-    def convrtLstToCSV(self, lst):
-
-        # covert each part as string
-        for idx,rcrd in enumerate(lst):
-            lst[idx] = str(rcrd)
-
-        # return with join
-        return ",".join(lst)
 
     # Method to write the data to a certain file
     def writeFile(self, filePath, data):

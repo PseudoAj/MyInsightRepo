@@ -39,4 +39,4 @@ peg install $clustername hadoop
 peg install $clustername spark
 
 ## cassandra
-peg sshcmd-node $clustername 1 "sudo apt-get -y install mysql-server"
+peg sshcmd-node $clustername 1 "sudo apt-get -y install mysql-server libmysqlclient-dev"
