@@ -122,11 +122,9 @@ class Spark():
                 exMsg = self.mysqlCursor.execute(sqlStatment)
                 self.mysqlConn.commit()
 
-                return exMsg
             except Exception:
                 self.mysqlConn.rollback()
                 traceback.print_exc()
-                return False
 
 # main method
 if __name__ == '__main__':
