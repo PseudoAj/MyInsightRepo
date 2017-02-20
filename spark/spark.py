@@ -12,6 +12,8 @@ from pyspark import SparkContext
 import sys
 from operator import add
 import traceback
+import MySQLdb
+import os
 #==============================================================================
 
 # Implementation
@@ -28,6 +30,12 @@ class Spark():
 
         # Define the app name
         self.appName = appName
+
+        # create a connection to database
+        self.mysqlConn = MySQLdb.connect(host="localhost",user="root",passwd=str(os.environ["AUTH_MYSQL_PASS"]),db="auth")
+
+        # cursor for running sql
+        self.mysqlCursor = self.mysqlConn.cursor()
 
         # Debug statement
         print "Initialized"
@@ -103,6 +111,15 @@ class Spark():
             traceback.print_exc()
             return False
 
+    # Insert the values into db
+    def insertToDB(self,data):
+
+        # Run through the data
+        for user_id, consmptn  in data:
+            sqlStatment = "INSERT INTO `consumption` (`user_id`,`updated_time`,`con_elec`) VALUES ('"+str(user_id)+"','"+str(self.filePath).replace(".dat","")+"','"+str(consmptn)+"')"
+            print sqlStatment
+
+
 # main method
 if __name__ == '__main__':
 
@@ -124,8 +141,11 @@ if __name__ == '__main__':
 
     # run the job
     output = thisSparkJob.runJob(data)
-    for key,value in output:
-        print "User: "+str(key)+"has consumption of: "+str(value)
+
+    # Insert the computed data into mysql
+    thisSparkJob.insertToDB(output)
+
+    thisSparkJob.mysqlConn.close()
 
     # stop the job
     sc.stop()

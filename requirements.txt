@@ -2,3 +2,4 @@ Faker
 radar
 kafka-python
 boto3
+MySQL-python
