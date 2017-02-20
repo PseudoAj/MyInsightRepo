@@ -120,9 +120,9 @@ class Spark():
 
             try:
                 self.cursor.execute(sqlStatment)
-                db.commit()
+                self.mysqlConn.commit()
             except:
-                db.rollback()
+                self.mysqlConn.rollback()
 
 # main method
 if __name__ == '__main__':
