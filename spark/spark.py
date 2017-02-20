@@ -119,10 +119,14 @@ class Spark():
             sqlStatment = "INSERT INTO `consumption` (`user_id`,`updated_time`,`con_elec`) VALUES ('"+str(user_id)+"','"+str(self.filePath).replace(".dat","").split("/",1)[1]+"','"+str(consmptn)+"')"
 
             try:
-                self.cursor.execute(sqlStatment)
+                exMsg = self.mysqlCursor.execute(sqlStatment)
                 self.mysqlConn.commit()
-            except:
+
+                return exMsg
+            except Exception:
                 self.mysqlConn.rollback()
+                traceback.print_exc()
+                return False
 
 # main method
 if __name__ == '__main__':
