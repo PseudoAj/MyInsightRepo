@@ -114,11 +114,15 @@ class Spark():
     # Insert the values into db
     def insertToDB(self,data):
 
-        # Run through the data
+        # Run through the data and buid a query for each record and execute
         for user_id, consmptn  in data:
-            sqlStatment = "INSERT INTO `consumption` (`user_id`,`updated_time`,`con_elec`) VALUES ('"+str(user_id)+"','"+str(self.filePath).replace(".dat","")+"','"+str(consmptn)+"')"
-            print sqlStatment
+            sqlStatment = "INSERT INTO `consumption` (`user_id`,`updated_time`,`con_elec`) VALUES ('"+str(user_id)+"','"+str(self.filePath).replace(".dat","").split("/",1)[1]+"','"+str(consmptn)+"')"
 
+            try:
+                self.cursor.execute(sqlStatment)
+                db.commit()
+            except:
+                db.rollback()
 
 # main method
 if __name__ == '__main__':
